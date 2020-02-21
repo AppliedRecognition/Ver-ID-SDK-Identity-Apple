@@ -11,5 +11,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run iOS tests
       shell: bash
-      run: xcodebuild test -project VerIDSDKIdentity.xcodeproj -scheme VerIDSDKIdentityiOS  -configuration Debug -destination "platform=macOS,variant=Mac Catalyst" | xcpretty
+      run: xcodebuild test -project VerIDSDKIdentity.xcodeproj -scheme VerIDSDKIdentityiOS -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator,name=iPhone 11" | xcpretty
 
