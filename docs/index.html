@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VerIDSDKIdentity  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="VerIDSDKIdentity  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">VerIDSDKIdentity Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">VerIDSDKIdentity Reference</a>
+        <img id="carat" src="img/carat.png" />
+        VerIDSDKIdentity  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/VerIDSDKIdentity.html">VerIDSDKIdentity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/CertificateError.html">CertificateError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ConversionError.html">ConversionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/IdentityError.html">IdentityError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/KeyError.html">KeyError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/SecCertificate.html">SecCertificate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='ver-id-sdk-identity' class='heading'>Ver-ID SDK Identity</h1>
+<h3 id='framework-that-provides-a-client-identity-to-ver-id-sdk' class='heading'>Framework that provides a client identity to Ver-ID SDK</h3>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<ol>
+<li>Download <a href="https://cocoapods.org">CocoaPods</a></li>
+<li><p>Add the <strong>Ver-ID-SDK-Identity</strong> pod to your <a href="https://guides.cocoapods.org/syntax/podfile.html">Podfile</a>:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Ver-ID-SDK-Identity'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+</code></pre>
+
+<ol>
+<li>In Terminal enter <code>pod install</code> and press <em>enter</em>.</li>
+</ol></li>
+</ol>
+<h2 id='obtaining-credentials-ver-id-sdk-credentials' class='heading'>Obtaining credentials Ver-ID SDK credentials</h2>
+
+<ol>
+<li><a href="https://dev.ver-id.com/licensing/">Register your app</a>. You will need your app&rsquo;s bundle identifier.</li>
+<li>Registering your app will generate an evaluation licence for your app. The licence is valid for 30 days. If you need a production licence please <a href="mailto:sales@appliedrec.com">contact Applied Recognition</a>.</li>
+<li>When you finish the registration you&rsquo;ll receive a file called <strong>Ver-ID identity.p12</strong> and a password.</li>
+</ol>
+<h2 id='creating-a-ver-id-sdk-identity' class='heading'>Creating a Ver-ID SDK identity</h2>
+<h3 id='option-1' class='heading'>Option 1</h3>
+
+<ol>
+<li>Copy the <strong>Ver-ID identity.p12</strong> file in your Xcode project and include it in your app&rsquo;s target.</li>
+<li><p>Place your password in your app&rsquo;s <strong>Info.plist</strong>:</p>
+<pre class="highlight xml"><code><span class="nt">&lt;key&gt;</span>com.appliedrec.verid.password<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;string&gt;</span>your password goes here<span class="nt">&lt;/string&gt;</span>
+</code></pre></li>
+<li><p>Create an instance of <strong>VerIDSDKIdentity</strong>:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">VerIDSDKIdentity</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">identity</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">VerIDSDKIdentity</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></li>
+</ol>
+<h3 id='option-2' class='heading'>Option 2</h3>
+
+<ol>
+<li>Copy the <strong>Ver-ID identity.p12</strong> file in your Xcode project and include it in your app&rsquo;s target.</li>
+<li><p>Create an instance of <strong>VerIDSDKIdentity</strong>:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">VerIDSDKIdentity</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">identity</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">VerIDSDKIdentity</span><span class="p">(</span><span class="nv">password</span><span class="p">:</span> <span class="s">"your password goes here"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></li>
+</ol>
+<h3 id='option-3' class='heading'>Option 3</h3>
+
+<ol>
+<li>Upload the <strong>Ver-ID identity.p12</strong> online or store it in your app.</li>
+<li><p>Create an instance of <strong>VerIDSDKIdentity</strong> referencing the URL of the <strong>Ver-ID identity.p12</strong> file:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">VerIDSDKIdentity</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://ver-id.s3.us-east-1.amazonaws.com/ios/com.appliedrec.verid.licenceclient/test_assets/Ver-ID%20identity.p12"</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="k">let</span> <span class="nv">identity</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">VerIDSDKIdentity</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="s">"your password goes here"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></li>
+</ol>
+<h3 id='option-4' class='heading'>Option 4</h3>
+
+<ol>
+<li>Upload the <strong>Ver-ID identity.p12</strong> online or store it in your app.</li>
+<li><p>Place your password in your app&rsquo;s <strong>Info.plist</strong>:</p>
+<pre class="highlight xml"><code><span class="nt">&lt;key&gt;</span>com.appliedrec.verid.password<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;string&gt;</span>your password goes here<span class="nt">&lt;/string&gt;</span>
+</code></pre></li>
+<li><p>Create an instance of <strong>VerIDSDKIdentity</strong> referencing the URL of the <strong>Ver-ID identity.p12</strong> file:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">VerIDSDKIdentity</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://ver-id.s3.us-east-1.amazonaws.com/ios/com.appliedrec.verid.licenceclient/test_assets/Ver-ID%20identity.p12"</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="k">let</span> <span class="nv">identity</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">VerIDSDKIdentity</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></li>
+</ol>
+<h3 id='option-5' class='heading'>Option 5</h3>
+
+<ol>
+<li>Create your own instance of <a href="https://developer.apple.com/documentation/security/secidentity">SecIdentity</a>.</li>
+<li><p>Pass the identity to the <strong>VerIDSDKIdentity</strong> initializer:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Security</span>
+<span class="kd">import</span> <span class="kt">VerIDSDKIdentity</span>
+
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">secIdentity</span><span class="p">:</span> <span class="kt">SecIdentity</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// Construct your SecIdentity instance</span>
+    <span class="k">let</span> <span class="nv">identity</span><span class="p">:</span> <span class="kt">SecIdentity</span> <span class="c1">// Stub</span>
+    <span class="k">return</span> <span class="n">identity</span>
+<span class="p">}()</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">identity</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">VerIDSDKIdentity</span><span class="p">(</span><span class="nv">identity</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">secIdentity</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></li>
+</ol>
+<h2 id='providing-your-identity-to-ver-id-sdk' class='heading'>Providing your identity to Ver-ID SDK</h2>
+
+<p><a href="#creating-a-ver-id-sdk-identity">Create an instance</a> of <strong>VerIDSDKIdentity</strong> and pass it to <a href="https://appliedrecognition.github.io/Ver-ID-Core-Apple/Classes/VerIDFactory.html"><strong>VerIDFactory</strong></a>:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">VerIDSDKIdentity</span>
+<span class="kd">import</span> <span class="kt">VerIDCore</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="c1">// See above</span>
+    <span class="k">let</span> <span class="nv">identity</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">VerIDSDKIdentity</span><span class="p">()</span>
+    <span class="c1">// Construct VerIDFactory with your identity</span>
+    <span class="k">let</span> <span class="nv">veridFactory</span> <span class="o">=</span> <span class="kt">VerIDFactory</span><span class="p">(</span><span class="nv">identity</span><span class="p">:</span> <span class="n">identity</span><span class="p">)</span>
+    <span class="c1">// ... use veridFactory to create an instance of VerID</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://github.com/AppliedRecognition/" target="_blank" rel="external">Applied Recognition, Inc.</a>. All rights reserved. (Last updated: 2020-02-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

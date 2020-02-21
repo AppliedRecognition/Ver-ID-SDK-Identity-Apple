@@ -1,0 +1,14 @@
+clean: true
+sdk: macosx
+xcodebuild_arguments:
+ - -project
+ - VerIDSDKIdentity.xcodeproj
+ - -scheme
+ - VerIDSDKIdentityMacOS
+ - -sdk
+ - macosx
+author: Applied Recognition, Inc.
+module: VerIDSDKIdentity
+min_acl: public
+skip_undocumented: true
+hide_documentation_coverage: true

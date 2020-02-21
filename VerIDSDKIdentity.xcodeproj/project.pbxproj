@@ -1,0 +1,723 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B40DE5A23FF1FB400CA0C94 /* VerIDSDKIdentity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */; };
+		3B40DE5F23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE5E23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift */; };
+		3B40DE6123FF1FB400CA0C94 /* VerIDLicence.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B40DE5323FF1FB400CA0C94 /* VerIDLicence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B40DE6B23FF1FF900CA0C94 /* VerIDSDKIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6A23FF1FF800CA0C94 /* VerIDSDKIdentity.swift */; };
+		3B40DE6D23FF213B00CA0C94 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6C23FF213B00CA0C94 /* Errors.swift */; };
+		3B40DE6F23FF22CB00CA0C94 /* SecCertificateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */; };
+		3B98498D240037C500DF2B5F /* Ver-ID identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */; };
+		3B98499124006B6E00DF2B5F /* VerIDLicence.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B40DE5323FF1FB400CA0C94 /* VerIDLicence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B98499324006B6E00DF2B5F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6C23FF213B00CA0C94 /* Errors.swift */; };
+		3B98499424006B6E00DF2B5F /* VerIDSDKIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6A23FF1FF800CA0C94 /* VerIDSDKIdentity.swift */; };
+		3B98499524006B6E00DF2B5F /* SecCertificateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */; };
+		3B9849A124006D5600DF2B5F /* VerIDSDKIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE5E23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift */; };
+		3B9849A324006D5600DF2B5F /* VerIDSDKIdentity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */; };
+		3B9849A524006D5600DF2B5F /* Ver-ID identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B40DE5B23FF1FB400CA0C94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B40DE4723FF1FB400CA0C94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B40DE4F23FF1FB400CA0C94;
+			remoteInfo = VerIDLicence;
+		};
+		3B98499F24006D5600DF2B5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B40DE4723FF1FB400CA0C94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B40DE4F23FF1FB400CA0C94;
+			remoteInfo = VerIDLicence;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerIDSDKIdentity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B40DE5323FF1FB400CA0C94 /* VerIDLicence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerIDLicence.h; sourceTree = "<group>"; };
+		3B40DE5423FF1FB400CA0C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B40DE5923FF1FB400CA0C94 /* VerIDSDKIdentityTestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerIDSDKIdentityTestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B40DE5E23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerIDSDKIdentityTests.swift; sourceTree = "<group>"; };
+		3B40DE6023FF1FB400CA0C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B40DE6A23FF1FF800CA0C94 /* VerIDSDKIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerIDSDKIdentity.swift; sourceTree = "<group>"; };
+		3B40DE6C23FF213B00CA0C94 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecCertificateExtension.swift; sourceTree = "<group>"; };
+		3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity.p12"; sourceTree = "<group>"; };
+		3B98498E24005C3D00DF2B5F /* Ver-ID-SDK-Identity.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID-SDK-Identity.podspec"; sourceTree = SOURCE_ROOT; };
+		3B98499B24006B6E00DF2B5F /* VerIDSDKIdentity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerIDSDKIdentity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B98499C24006B6E00DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/VerIDLicence/VerIDSDKIdentity/MacOS-Info.plist"; sourceTree = "<absolute>"; };
+		3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerIDSDKIdentityTestsMacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B9849AA24006D5600DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/VerIDLicence/VerIDSDKIdentityTests/MacOS-Info.plist"; sourceTree = "<absolute>"; };
+		3B9849AB24006F4E00DF2B5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B40DE4D23FF1FB400CA0C94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B40DE5623FF1FB400CA0C94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B40DE5A23FF1FB400CA0C94 /* VerIDSDKIdentity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B98499624006B6E00DF2B5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B9849A224006D5600DF2B5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9849A324006D5600DF2B5F /* VerIDSDKIdentity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B40DE4623FF1FB400CA0C94 = {
+			isa = PBXGroup;
+			children = (
+				3B40DE5223FF1FB400CA0C94 /* VerIDSDKIdentity */,
+				3B40DE5D23FF1FB400CA0C94 /* VerIDSDKIdentityTests */,
+				3B40DE5123FF1FB400CA0C94 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B40DE5123FF1FB400CA0C94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */,
+				3B40DE5923FF1FB400CA0C94 /* VerIDSDKIdentityTestsiOS.xctest */,
+				3B98499B24006B6E00DF2B5F /* VerIDSDKIdentity.framework */,
+				3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B40DE5223FF1FB400CA0C94 /* VerIDSDKIdentity */ = {
+			isa = PBXGroup;
+			children = (
+				3B40DE5323FF1FB400CA0C94 /* VerIDLicence.h */,
+				3B40DE5423FF1FB400CA0C94 /* Info.plist */,
+				3B40DE6A23FF1FF800CA0C94 /* VerIDSDKIdentity.swift */,
+				3B40DE6C23FF213B00CA0C94 /* Errors.swift */,
+				3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */,
+				3B98498E24005C3D00DF2B5F /* Ver-ID-SDK-Identity.podspec */,
+				3B98499C24006B6E00DF2B5F /* MacOS-Info.plist */,
+				3B9849AB24006F4E00DF2B5F /* README.md */,
+			);
+			path = VerIDSDKIdentity;
+			sourceTree = "<group>";
+		};
+		3B40DE5D23FF1FB400CA0C94 /* VerIDSDKIdentityTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B9849AA24006D5600DF2B5F /* MacOS-Info.plist */,
+				3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */,
+				3B40DE5E23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift */,
+				3B40DE6023FF1FB400CA0C94 /* Info.plist */,
+			);
+			path = VerIDSDKIdentityTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3B40DE4B23FF1FB400CA0C94 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B40DE6123FF1FB400CA0C94 /* VerIDLicence.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B98499024006B6E00DF2B5F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B98499124006B6E00DF2B5F /* VerIDLicence.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3B40DE4F23FF1FB400CA0C94 /* VerIDSDKIdentityiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B40DE6423FF1FB400CA0C94 /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityiOS" */;
+			buildPhases = (
+				3B40DE4B23FF1FB400CA0C94 /* Headers */,
+				3B40DE4C23FF1FB400CA0C94 /* Sources */,
+				3B40DE4D23FF1FB400CA0C94 /* Frameworks */,
+				3B40DE4E23FF1FB400CA0C94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VerIDSDKIdentityiOS;
+			productName = VerIDLicence;
+			productReference = 3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B40DE5823FF1FB400CA0C94 /* VerIDSDKIdentityTestsiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B40DE6723FF1FB400CA0C94 /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityTestsiOS" */;
+			buildPhases = (
+				3B40DE5523FF1FB400CA0C94 /* Sources */,
+				3B40DE5623FF1FB400CA0C94 /* Frameworks */,
+				3B40DE5723FF1FB400CA0C94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B40DE5C23FF1FB400CA0C94 /* PBXTargetDependency */,
+			);
+			name = VerIDSDKIdentityTestsiOS;
+			productName = VerIDLicenceTests;
+			productReference = 3B40DE5923FF1FB400CA0C94 /* VerIDSDKIdentityTestsiOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B98498F24006B6E00DF2B5F /* VerIDSDKIdentityMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B98499824006B6E00DF2B5F /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityMacOS" */;
+			buildPhases = (
+				3B98499024006B6E00DF2B5F /* Headers */,
+				3B98499224006B6E00DF2B5F /* Sources */,
+				3B98499624006B6E00DF2B5F /* Frameworks */,
+				3B98499724006B6E00DF2B5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VerIDSDKIdentityMacOS;
+			productName = VerIDLicence;
+			productReference = 3B98499B24006B6E00DF2B5F /* VerIDSDKIdentity.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B98499D24006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B9849A624006D5600DF2B5F /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityTestsMacOS" */;
+			buildPhases = (
+				3B9849A024006D5600DF2B5F /* Sources */,
+				3B9849A224006D5600DF2B5F /* Frameworks */,
+				3B9849A424006D5600DF2B5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B98499E24006D5600DF2B5F /* PBXTargetDependency */,
+			);
+			name = VerIDSDKIdentityTestsMacOS;
+			productName = VerIDLicenceTests;
+			productReference = 3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B40DE4723FF1FB400CA0C94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Applied Recognition";
+				TargetAttributes = {
+					3B40DE4F23FF1FB400CA0C94 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+					};
+					3B40DE5823FF1FB400CA0C94 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 3B40DE4A23FF1FB400CA0C94 /* Build configuration list for PBXProject "VerIDSDKIdentity" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B40DE4623FF1FB400CA0C94;
+			productRefGroup = 3B40DE5123FF1FB400CA0C94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B40DE4F23FF1FB400CA0C94 /* VerIDSDKIdentityiOS */,
+				3B40DE5823FF1FB400CA0C94 /* VerIDSDKIdentityTestsiOS */,
+				3B98498F24006B6E00DF2B5F /* VerIDSDKIdentityMacOS */,
+				3B98499D24006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B40DE4E23FF1FB400CA0C94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B40DE5723FF1FB400CA0C94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B98498D240037C500DF2B5F /* Ver-ID identity.p12 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B98499724006B6E00DF2B5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B9849A424006D5600DF2B5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9849A524006D5600DF2B5F /* Ver-ID identity.p12 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B40DE4C23FF1FB400CA0C94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B40DE6D23FF213B00CA0C94 /* Errors.swift in Sources */,
+				3B40DE6B23FF1FF900CA0C94 /* VerIDSDKIdentity.swift in Sources */,
+				3B40DE6F23FF22CB00CA0C94 /* SecCertificateExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B40DE5523FF1FB400CA0C94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B40DE5F23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B98499224006B6E00DF2B5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B98499324006B6E00DF2B5F /* Errors.swift in Sources */,
+				3B98499424006B6E00DF2B5F /* VerIDSDKIdentity.swift in Sources */,
+				3B98499524006B6E00DF2B5F /* SecCertificateExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B9849A024006D5600DF2B5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9849A124006D5600DF2B5F /* VerIDSDKIdentityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B40DE5C23FF1FB400CA0C94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B40DE4F23FF1FB400CA0C94 /* VerIDSDKIdentityiOS */;
+			targetProxy = 3B40DE5B23FF1FB400CA0C94 /* PBXContainerItemProxy */;
+		};
+		3B98499E24006D5600DF2B5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B40DE4F23FF1FB400CA0C94 /* VerIDSDKIdentityiOS */;
+			targetProxy = 3B98499F24006D5600DF2B5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3B40DE6223FF1FB400CA0C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B40DE6323FF1FB400CA0C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3B40DE6523FF1FB400CA0C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = VerIDSDKIdentity/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
+				PRODUCT_NAME = VerIDSDKIdentity;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B40DE6623FF1FB400CA0C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = VerIDSDKIdentity/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
+				PRODUCT_NAME = VerIDSDKIdentity;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3B40DE6823FF1FB400CA0C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				INFOPLIST_FILE = VerIDSDKIdentityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.VerIDLicenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B40DE6923FF1FB400CA0C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				INFOPLIST_FILE = VerIDSDKIdentityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.VerIDLicenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3B98499924006B6E00DF2B5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "VerIDSDKIdentity/MacOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
+				PRODUCT_NAME = VerIDSDKIdentity;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B98499A24006B6E00DF2B5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "VerIDSDKIdentity/MacOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
+				PRODUCT_NAME = VerIDSDKIdentity;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3B9849A724006D5600DF2B5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				INFOPLIST_FILE = "VerIDSDKIdentityTests/MacOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.VerIDLicenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B9849A824006D5600DF2B5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				INFOPLIST_FILE = "VerIDSDKIdentityTests/MacOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.VerIDLicenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B40DE4A23FF1FB400CA0C94 /* Build configuration list for PBXProject "VerIDSDKIdentity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B40DE6223FF1FB400CA0C94 /* Debug */,
+				3B40DE6323FF1FB400CA0C94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B40DE6423FF1FB400CA0C94 /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B40DE6523FF1FB400CA0C94 /* Debug */,
+				3B40DE6623FF1FB400CA0C94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B40DE6723FF1FB400CA0C94 /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityTestsiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B40DE6823FF1FB400CA0C94 /* Debug */,
+				3B40DE6923FF1FB400CA0C94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B98499824006B6E00DF2B5F /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B98499924006B6E00DF2B5F /* Debug */,
+				3B98499A24006B6E00DF2B5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B9849A624006D5600DF2B5F /* Build configuration list for PBXNativeTarget "VerIDSDKIdentityTestsMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B9849A724006D5600DF2B5F /* Debug */,
+				3B9849A824006D5600DF2B5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B40DE4723FF1FB400CA0C94 /* Project object */;
+}
