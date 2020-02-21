@@ -1,3 +1,5 @@
+![CI](https://github.com/AppliedRecognition/Ver-ID-SDK-Identity-Apple/workflows/CI/badge.svg?event=push)
+
 #  Ver-ID SDK Identity
 
 ### Framework that provides a client identity to [Ver-ID SDK](https://github.com/AppliedRecognition/Ver-ID-UI-iOS) 1.11.0 and newer
