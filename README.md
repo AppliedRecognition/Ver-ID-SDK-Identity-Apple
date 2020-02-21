@@ -128,3 +128,5 @@ do {
 } catch {
 }
 ~~~
+
+## [Reference documentation](https://appliedrecognition.github.io/Ver-ID-SDK-Identity-Apple/)
