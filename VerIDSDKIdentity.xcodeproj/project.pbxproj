@@ -51,7 +51,7 @@
 		3B40DE6C23FF213B00CA0C94 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecCertificateExtension.swift; sourceTree = "<group>"; };
 		3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity.p12"; sourceTree = "<group>"; };
-		3B98498E24005C3D00DF2B5F /* Ver-ID-SDK-Identity.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID-SDK-Identity.podspec"; sourceTree = SOURCE_ROOT; };
+		3B98498E24005C3D00DF2B5F /* Ver-ID-SDK-Identity.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ver-ID-SDK-Identity.podspec"; sourceTree = SOURCE_ROOT; };
 		3B98499B24006B6E00DF2B5F /* VerIDSDKIdentity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerIDSDKIdentity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B98499C24006B6E00DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/VerIDLicence/VerIDSDKIdentity/MacOS-Info.plist"; sourceTree = "<absolute>"; };
 		3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerIDSDKIdentityTestsMacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -510,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
