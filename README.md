@@ -1,4 +1,4 @@
-![CI](https://github.com/AppliedRecognition/Ver-ID-SDK-Identity-Apple/workflows/CI/badge.svg?event=push)
+![Cocoapods platforms](https://img.shields.io/cocoapods/p/Ver-ID-SDK-Identity) ![Cocoapods](https://img.shields.io/cocoapods/v/Ver-ID-SDK-Identity) ![CI](https://github.com/AppliedRecognition/Ver-ID-SDK-Identity-Apple/workflows/CI/badge.svg?event=push)
 
 #  Ver-ID SDK Identity
 
