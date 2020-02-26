@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name = "Ver-ID-SDK-Identity"
-  spec.version = "2.0.0"
+  spec.version = "3.0.0"
   spec.summary = "Provides identity for clients of Ver-ID face recognition SDK"
   spec.module_name = "VerIDSDKIdentity"
   spec.homepage = "https://github.com/AppliedRecognition/"
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.license = { :type => "MIT", :file => "LICENSE" }
   spec.author = "Jakub Dolejs"
   spec.swift_versions = "5.0"
-  spec.ios.deployment_target = "10.3"
+  spec.ios.deployment_target = "10.0"
   spec.osx.deployment_target = "10.13.0"
   spec.source = { :git => "https://github.com/AppliedRecognition/Ver-ID-SDK-Identity-Apple.git", :tag => "v#{spec.version}" }
   spec.source_files = "VerIDSDKIdentity/*.swift"

@@ -16,13 +16,13 @@ class VerIDLicenceTests: XCTestCase {
     let commonName = "verid.client.identity"
 
     func testCreateClient_failMissingCredentials() {
-        XCTAssertThrowsError(try VerIDSDKIdentity(url: nil, password: nil))
+        XCTAssertThrowsError(try VerIDIdentity(url: nil, password: nil))
     }
     
     func testCreateClient_succeeds() {
         do {
             let url = try self.identityFileURL()
-            XCTAssertNoThrow(try VerIDSDKIdentity(url: url, password: self.correctPassword))
+            XCTAssertNoThrow(try VerIDIdentity(url: url, password: self.correctPassword))
         } catch {
             XCTFail()
         }
@@ -31,20 +31,20 @@ class VerIDLicenceTests: XCTestCase {
     func testCreateClient_failMissingPassword() {
         do {
             let url = try self.identityFileURL()
-            XCTAssertThrowsError(try VerIDSDKIdentity(url: url))
+            XCTAssertThrowsError(try VerIDIdentity(url: url))
         } catch {
             XCTFail()
         }
     }
     
     func testCreateClient_failMissingIdentityFile() {
-        XCTAssertThrowsError(try VerIDSDKIdentity(password: self.correctPassword))
+        XCTAssertThrowsError(try VerIDIdentity(password: self.correctPassword))
     }
     
     func testCreateClient_failInvalidPassword() {
         do {
             let url = try self.identityFileURL()
-            XCTAssertThrowsError(try VerIDSDKIdentity(url: url, password: "nonsense"))
+            XCTAssertThrowsError(try VerIDIdentity(url: url, password: "nonsense"))
         } catch {
             XCTFail()
         }
@@ -55,13 +55,13 @@ class VerIDLicenceTests: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertNoThrow(try VerIDSDKIdentity(url: url, password: self.correctPassword))
+        XCTAssertNoThrow(try VerIDIdentity(url: url, password: self.correctPassword))
     }
     
     func testClientCommonName_matches() {
         do {
             let url = try self.identityFileURL()
-            let identity = try VerIDSDKIdentity(url: url, password: self.correctPassword)
+            let identity = try VerIDIdentity(url: url, password: self.correctPassword)
             XCTAssertEqual(self.commonName, identity.commonName)
         } catch {
             XCTFail()
@@ -71,7 +71,7 @@ class VerIDLicenceTests: XCTestCase {
     func testSignMessage_succeeds() {
         do {
             let url = try self.identityFileURL()
-            let identity = try VerIDSDKIdentity(url: url, password: self.correctPassword)
+            let identity = try VerIDIdentity(url: url, password: self.correctPassword)
             let message = Data([UInt8](repeating: 0, count: 8))
             XCTAssertNoThrow(try identity.sign(message))
         } catch {
@@ -82,7 +82,7 @@ class VerIDLicenceTests: XCTestCase {
     func testVerifySignature_succeeds() {
         do {
             let url = try self.identityFileURL()
-            let identity = try VerIDSDKIdentity(url: url, password: self.correctPassword)
+            let identity = try VerIDIdentity(url: url, password: self.correctPassword)
             let message = Data([UInt8](repeating: 0, count: 8))
             let signature = try identity.sign(message)
             guard let key = identity.certificate.publicKey else {

@@ -1,6 +1,6 @@
 //
-//  VerIDClientIdentity.swift
-//  VerIDClientIdentity
+//  VerIDIdentity.swift
+//  VerIDIdentity
 //
 //  Created by Jakub Dolejs on 20/02/2020.
 //  Copyright © 2020 Applied Recognition. All rights reserved.
@@ -10,8 +10,9 @@ import Foundation
 import Security
 
 /// Represents an identity of a client using Ver-ID SDK
-/// - Since: 1.0.0
-@objc public class VerIDSDKIdentity: NSObject {
+/// - Since: 3.0.0
+@available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *)
+@objc public class VerIDIdentity: NSObject {
     
     private let identity: SecIdentity
     /// Digital certificate associated with this identity
