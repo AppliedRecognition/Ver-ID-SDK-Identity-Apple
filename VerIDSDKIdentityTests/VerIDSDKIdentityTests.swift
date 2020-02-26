@@ -10,6 +10,7 @@ import XCTest
 import Security
 @testable import VerIDSDKIdentity
 
+@available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *)
 class VerIDLicenceTests: XCTestCase {
     
     let correctPassword = "dummy"
