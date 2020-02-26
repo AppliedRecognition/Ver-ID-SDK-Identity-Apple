@@ -28,12 +28,12 @@ import Security
     /// - Parameters:
     ///   - url: URL of p12 file containing the digital certificate and private key used to construct the Ver-ID SDK identity
     ///   - password: Password to unlock the p12 file
-    /// - Since: 1.0.0
-    @objc public convenience init(url: URL? = nil, password: String? = nil) throws {
+    /// - Since: 2.0.0
+    @objc public convenience init(url: URL?, password: String?) throws {
         let p12url: URL
         if let `url` = url {
             p12url = url
-        } else if let `url` = Bundle.main.url(forResource: "Ver-ID Identity", withExtension: "p12") {
+        } else if let `url` = Bundle.main.url(forResource: "Ver-ID identity", withExtension: "p12") {
             p12url = url
         } else {
             throw IdentityError.missingIdentityFile
@@ -61,6 +61,20 @@ import Security
             throw IdentityError.missingIdentityInDictionary
         }
         try self.init(identity: identity as! SecIdentity)
+    }
+    
+    /// Initializer
+    /// - Parameter url: URL of p12 file containing the digital certificate and private key used to construct the Ver-ID SDK identity
+    /// - Since: 2.0.0
+    @objc public convenience init(url: URL) throws {
+        try self.init(url: url, password: nil)
+    }
+    
+    /// Initializer
+    /// - Parameter password: Password to unlock the p12 file
+    /// - Since: 2.0.0 
+    @objc public convenience init(password: String) throws {
+        try self.init(url: nil, password: password)
     }
     
     /// Initializer

@@ -16,7 +16,7 @@ class VerIDLicenceTests: XCTestCase {
     let commonName = "verid.client.identity"
 
     func testCreateClient_failMissingCredentials() {
-        XCTAssertThrowsError(try VerIDSDKIdentity())
+        XCTAssertThrowsError(try VerIDSDKIdentity(url: nil, password: nil))
     }
     
     func testCreateClient_succeeds() {

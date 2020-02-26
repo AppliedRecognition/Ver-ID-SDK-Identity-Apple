@@ -36,7 +36,7 @@
     import VerIDSDKIdentity
     
     do {
-        let identity = try VerIDSDKIdentity()
+        let identity = try VerIDSDKIdentity(url: nil, password: nil)
     } catch {
     }
     ~~~
