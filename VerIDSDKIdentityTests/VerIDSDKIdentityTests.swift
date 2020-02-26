@@ -10,17 +10,22 @@ import XCTest
 import Security
 @testable import VerIDSDKIdentity
 
-@available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *)
 class VerIDLicenceTests: XCTestCase {
     
     let correctPassword = "dummy"
     let commonName = "verid.client.identity"
 
     func testCreateClient_failMissingCredentials() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         XCTAssertThrowsError(try VerIDIdentity(url: nil, password: nil))
     }
     
     func testCreateClient_succeeds() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         do {
             let url = try self.identityFileURL()
             XCTAssertNoThrow(try VerIDIdentity(url: url, password: self.correctPassword))
@@ -30,6 +35,9 @@ class VerIDLicenceTests: XCTestCase {
     }
     
     func testCreateClient_failMissingPassword() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         do {
             let url = try self.identityFileURL()
             XCTAssertThrowsError(try VerIDIdentity(url: url))
@@ -39,10 +47,16 @@ class VerIDLicenceTests: XCTestCase {
     }
     
     func testCreateClient_failMissingIdentityFile() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         XCTAssertThrowsError(try VerIDIdentity(password: self.correctPassword))
     }
     
     func testCreateClient_failInvalidPassword() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         do {
             let url = try self.identityFileURL()
             XCTAssertThrowsError(try VerIDIdentity(url: url, password: "nonsense"))
@@ -52,6 +66,9 @@ class VerIDLicenceTests: XCTestCase {
     }
     
     func testCreateIdentityFromRemoteURL_succeeds() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         guard let url = URL(string: "https://ver-id.s3.us-east-1.amazonaws.com/ios/com.appliedrec.verid.licenceclient/test_assets/Ver-ID%20identity.p12") else {
             XCTFail()
             return
@@ -60,6 +77,9 @@ class VerIDLicenceTests: XCTestCase {
     }
     
     func testClientCommonName_matches() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         do {
             let url = try self.identityFileURL()
             let identity = try VerIDIdentity(url: url, password: self.correctPassword)
@@ -70,6 +90,9 @@ class VerIDLicenceTests: XCTestCase {
     }
     
     func testSignMessage_succeeds() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         do {
             let url = try self.identityFileURL()
             let identity = try VerIDIdentity(url: url, password: self.correctPassword)
@@ -81,6 +104,9 @@ class VerIDLicenceTests: XCTestCase {
     }
     
     func testVerifySignature_succeeds() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
         do {
             let url = try self.identityFileURL()
             let identity = try VerIDIdentity(url: url, password: self.correctPassword)
