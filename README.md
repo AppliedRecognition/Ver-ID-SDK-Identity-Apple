@@ -30,33 +30,33 @@
     <key>com.appliedrec.verid.password</key>
     <string>your password goes here</string>
     ~~~
-3. Create an instance of **VerIDSDKIdentity**:
+3. Create an instance of **VerIDIdentity**:
 
     ~~~swift
     import VerIDSDKIdentity
     
     do {
-        let identity = try VerIDSDKIdentity(url: nil, password: nil)
+        let identity = try VerIDIdentity(url: nil, password: nil)
     } catch {
     }
     ~~~
     
 ### Option 2
 1. Copy the **Ver-ID identity.p12** file in your Xcode project and include it in your app's target.
-2. Create an instance of **VerIDSDKIdentity**:
+2. Create an instance of **VerIDIdentity**:
 
     ~~~swift
     import VerIDSDKIdentity
     
     do {
-        let identity = try VerIDSDKIdentity(password: "your password goes here")
+        let identity = try VerIDIdentity(password: "your password goes here")
     } catch {
     }
     ~~~
     
 ### Option 3
 1. Upload the **Ver-ID identity.p12** online or store it in your app.
-2. Create an instance of **VerIDSDKIdentity** referencing the URL of the **Ver-ID identity.p12** file:
+2. Create an instance of **VerIDIdentity** referencing the URL of the **Ver-ID identity.p12** file:
 
     ~~~swift
     import VerIDSDKIdentity
@@ -65,7 +65,7 @@
         guard let url = URL(string: "https://ver-id.s3.us-east-1.amazonaws.com/ios/com.appliedrec.verid.licenceclient/test_assets/Ver-ID%20identity.p12") else {
             return
         }
-        let identity = try VerIDSDKIdentity(url: url, password: "your password goes here")
+        let identity = try VerIDIdentity(url: url, password: "your password goes here")
     } catch {
     }
     ~~~
@@ -78,7 +78,7 @@
     <key>com.appliedrec.verid.password</key>
     <string>your password goes here</string>
     ~~~
-3. Create an instance of **VerIDSDKIdentity** referencing the URL of the **Ver-ID identity.p12** file:
+3. Create an instance of **VerIDIdentity** referencing the URL of the **Ver-ID identity.p12** file:
 
     ~~~swift
     import VerIDSDKIdentity
@@ -87,14 +87,14 @@
         guard let url = URL(string: "https://ver-id.s3.us-east-1.amazonaws.com/ios/com.appliedrec.verid.licenceclient/test_assets/Ver-ID%20identity.p12") else {
             return
         }
-        let identity = try VerIDSDKIdentity(url: url)
+        let identity = try VerIDIdentity(url: url)
     } catch {
     }
     ~~~
 
 ### Option 5
 1. Create your own instance of [SecIdentity](https://developer.apple.com/documentation/security/secidentity).
-2. Pass the identity to the **VerIDSDKIdentity** initializer:
+2. Pass the identity to the **VerIDIdentity** initializer:
 
     ~~~swift
     import Security
@@ -107,13 +107,13 @@
     }()
     
     do {
-        let identity = try VerIDSDKIdentity(identity: self.secIdentity)
+        let identity = try VerIDIdentity(identity: self.secIdentity)
     } catch {
     }
     ~~~
 
 ## Providing your identity to Ver-ID SDK 1.11.0 and newer
-[Create an instance](#creating-a-ver-id-sdk-identity) of **VerIDSDKIdentity** and pass it to [**VerIDFactory**](https://appliedrecognition.github.io/Ver-ID-Core-Apple/Classes/VerIDFactory.html):
+[Create an instance](#creating-a-ver-id-sdk-identity) of **VerIDIdentity** and pass it to [**VerIDFactory**](https://appliedrecognition.github.io/Ver-ID-Core-Apple/Classes/VerIDFactory.html):
 
 ~~~swift
 import VerIDSDKIdentity
@@ -121,7 +121,7 @@ import VerIDCore
     
 do {
     // See above
-    let identity = try VerIDSDKIdentity()
+    let identity = try VerIDIdentity(url: nil, password: nil)
     // Construct VerIDFactory with your identity
     let veridFactory = VerIDFactory(identity: identity)
     // ... use veridFactory to create an instance of VerID
