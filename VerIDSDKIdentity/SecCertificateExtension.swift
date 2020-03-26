@@ -103,15 +103,7 @@ public extension SecCertificate {
         cfData = d
         #endif
         let data = cfData as Data
-        var bytes = [UInt8](repeating: 0, count: 8)
-        var j = 0
-        for i in (8-data.count)..<8 {
-            bytes[i] = data[j]
-            j += 1
-        }
-        let value = UnsafePointer(bytes).withMemoryRebound(to: UInt64.self, capacity: 1) {
-            $0.pointee
-        }
+        let value: UInt64 = data.withUnsafeBytes { $0.load(as: UInt64.self) }
         return UInt64(bigEndian: value)
     }
     
