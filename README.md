@@ -10,7 +10,7 @@
  2. Add the **Ver-ID-SDK-Identity** pod to your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
  
     ~~~ruby
-    pod 'Ver-ID-SDK-Identity', '~> 1.0'
+    pod 'Ver-ID-SDK-Identity', '~> 3.0'
     ~~~
 3. In Terminal enter `pod install` and press _enter_.
 
