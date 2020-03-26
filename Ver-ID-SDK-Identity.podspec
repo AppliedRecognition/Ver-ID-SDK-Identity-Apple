@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name = "Ver-ID-SDK-Identity"
-  spec.version = "3.0.0"
+  spec.version = "3.0.1"
   spec.summary = "Provides identity for clients of Ver-ID face recognition SDK"
   spec.module_name = "VerIDSDKIdentity"
   spec.homepage = "https://github.com/AppliedRecognition/"
