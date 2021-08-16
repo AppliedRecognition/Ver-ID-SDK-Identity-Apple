@@ -103,7 +103,15 @@ public extension SecCertificate {
         cfData = d
         #endif
         let data = cfData as Data
-        let value: UInt64 = data.withUnsafeBytes { $0.load(as: UInt64.self) }
+        if data.count > 8 {
+            return nil
+        }
+        var paddedData = [UInt8](repeating: 0, count: 8)
+        for i in 0..<data.count {
+            paddedData[i] = data[i]
+        }
+        paddedData.reverse()
+        let value: UInt64 = paddedData.withUnsafeBytes { $0.load(as: UInt64.self) }
         return UInt64(bigEndian: value)
     }
     

@@ -53,9 +53,9 @@
 		3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity.p12"; sourceTree = "<group>"; };
 		3B98498E24005C3D00DF2B5F /* Ver-ID-SDK-Identity.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ver-ID-SDK-Identity.podspec"; sourceTree = SOURCE_ROOT; };
 		3B98499B24006B6E00DF2B5F /* VerIDSDKIdentity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerIDSDKIdentity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B98499C24006B6E00DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/VerIDLicence/VerIDSDKIdentity/MacOS-Info.plist"; sourceTree = "<absolute>"; };
+		3B98499C24006B6E00DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/Ver-ID-SDK-Identity-Apple/VerIDSDKIdentity/MacOS-Info.plist"; sourceTree = "<absolute>"; };
 		3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerIDSDKIdentityTestsMacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B9849AA24006D5600DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/VerIDLicence/VerIDSDKIdentityTests/MacOS-Info.plist"; sourceTree = "<absolute>"; };
+		3B9849AA24006D5600DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/Ver-ID-SDK-Identity-Apple/VerIDSDKIdentityTests/MacOS-Info.plist"; sourceTree = "<absolute>"; };
 		3B9849AB24006F4E00DF2B5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -501,6 +501,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 3.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
 				PRODUCT_NAME = VerIDSDKIdentity;
 				SKIP_INSTALL = YES;
@@ -530,6 +531,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 3.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
 				PRODUCT_NAME = VerIDSDKIdentity;
 				SKIP_INSTALL = YES;
