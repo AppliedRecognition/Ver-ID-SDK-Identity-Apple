@@ -15,19 +15,6 @@ import CertificateSigningRequest
 @available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *)
 @objc public class VerIDIdentity: NSObject {
     
-    public struct Options: OptionSet {
-        public var rawValue: Int
-        public static let overwriteKeychain = Options(rawValue: 1 << 0)
-        public static let downloadLatest = Options(rawValue: 1 << 1)
-        public static let autoRenew = Options(rawValue: 1 << 2)
-        
-        public static let `default`: Options = .autoRenew
-        
-        public init(rawValue: Int) {
-            self.rawValue = rawValue
-        }
-    }
-    
     /// Digital certificate associated with this identity
     /// - Since: 1.0.0
     @objc public var certificate: SecCertificate {
@@ -53,30 +40,52 @@ import CertificateSigningRequest
     ///   - password: Password to unlock the p12 file
     /// - Since: 2.0.0
     @objc public convenience init(url: URL?, password: String?) throws {
-        try self.init(url: url, password: password, options: .default)
+        try self.init(url: url, password: password, overwriteExisting: false)
     }
     
-    public convenience init(url: URL?, password: String?, options: Options = .default) throws {
-        let p12url: URL
+    public convenience init(url: URL?, password: String?, overwriteExisting: Bool = false) throws {
+        let licenceURL: URL
         if let `url` = url {
-            p12url = url
-        } else if let `url` = Bundle.main.url(forResource: "Ver-ID identity", withExtension: "p12") {
-            p12url = url
+            if url.pathExtension.lowercased() == "identity" || url.pathExtension.lowercased() == "p12" {
+                licenceURL = url
+            } else {
+                throw IdentityError.invalidURL
+            }
+        } else if let url = Bundle.main.url(forResource: "Ver-ID identity", withExtension: "p12") {
+            licenceURL = url
+        } else if let url = Bundle.main.url(forResource: "Ver-ID", withExtension: "identity") {
+            licenceURL = url
         } else {
             throw IdentityError.missingIdentityFile
         }
+        let p12Data: Data
         let p12Password: String
-        if let pwd = password {
-            p12Password = pwd
-        } else if let pwd = Bundle.main.object(forInfoDictionaryKey: "com.appliedrec.verid.password") as? String {
-            p12Password = pwd
+        if licenceURL.pathExtension == "identity" {
+            let licenceData = try Data(contentsOf: licenceURL)
+            let version: UInt32 = UInt32(littleEndian: licenceData[0..<4].withUnsafeBytes { UInt32(littleEndian: $0.load(as: UInt32.self)) })
+            if version != 1 {
+                throw IdentityError.unsupportedLicenceFileVersion
+            }
+            let p12Length: UInt32 = licenceData[4..<8].withUnsafeBytes { UInt32(littleEndian: $0.load(as: UInt32.self)) }
+            let passwordLength: UInt32 = licenceData[8..<12].withUnsafeBytes { UInt32(littleEndian: $0.load(as: UInt32.self)) }
+            p12Data = Data(licenceData[12..<12+p12Length])
+            guard let password = String(data: Data(licenceData[12+p12Length..<12+p12Length+passwordLength]), encoding: .utf8) else {
+                throw IdentityError.failedToReadPassword
+            }
+            p12Password = password
         } else {
-            throw IdentityError.missingPassword
+            p12Data = try Data(contentsOf: licenceURL)
+            if let pwd = password {
+                p12Password = pwd
+            } else if let pwd = Bundle.main.object(forInfoDictionaryKey: "com.appliedrec.verid.password") as? String {
+                p12Password = pwd
+            } else {
+                throw IdentityError.missingPassword
+            }
         }
         let options = [kSecImportExportPassphrase as String: p12Password]
-        let data = try Data(contentsOf: p12url) as CFData
         var rawItems: CFArray?
-        let status = SecPKCS12Import(data, options as CFDictionary, &rawItems)
+        let status = SecPKCS12Import(p12Data as CFData, options as CFDictionary, &rawItems)
         guard status == errSecSuccess else {
             throw IdentityError.pkcs12ImportFailed
         }
@@ -97,29 +106,29 @@ import CertificateSigningRequest
         try self.init(url: url, password: nil)
     }
     
-    public convenience init(url: URL, options: Options) throws {
-        try self.init(url: url, password: nil, options: options)
+    public convenience init(url: URL, overwriteExisting: Bool) throws {
+        try self.init(url: url, password: nil, overwriteExisting: overwriteExisting)
     }
     
     /// Initializer
     /// - Parameter password: Password to unlock the p12 file
     /// - Since: 2.0.0 
     @objc public convenience init(password: String) throws {
-        try self.init(url: nil, password: password, options: .default)
+        try self.init(url: nil, password: password, overwriteExisting: false)
     }
     
-    public convenience init(password: String, options: Options) throws {
-        try self.init(url: nil, password: password, options: options)
+    public convenience init(password: String, overwriteExisting: Bool) throws {
+        try self.init(url: nil, password: password, overwriteExisting: overwriteExisting)
     }
     
     /// Initializer
     /// - Parameter identity: Secure framework identity used to construct Ver-ID SDK identity
     /// - Since: 1.0.0
     @objc public convenience init(identity: SecIdentity) throws {
-        try self.init(identity: identity, options: .default)
+        try self.init(identity: identity, overwriteExisting: false)
     }
     
-    public convenience init(identity: SecIdentity, options: Options = .default) throws {
+    public convenience init(identity: SecIdentity, overwriteExisting: Bool=false) throws {
         var cert: SecCertificate?
         guard SecIdentityCopyCertificate(identity, &cert) == errSecSuccess, let leafCert = cert else {
             throw IdentityError.failedToCopyCertificate
@@ -128,34 +137,21 @@ import CertificateSigningRequest
         guard SecIdentityCopyPrivateKey(identity, &key) == errSecSuccess, let privateKey = key else {
             throw IdentityError.failedToCopyPrivateKey
         }
-        try self.init(certificate: leafCert, privateKey: privateKey, options: options)
+        try self.init(certificate: leafCert, privateKey: privateKey, overwriteExisting: overwriteExisting)
     }
     
-    public init(certificate: SecCertificate, privateKey: SecKey, options: Options = .default) throws {
+    public init(certificate: SecCertificate, privateKey: SecKey, overwriteExisting: Bool=false) throws {
         guard let cn = certificate.commonName else {
             throw CertificateError.failedToCopyCommonName
         }
         self.commonName = cn
         self.keychain = Keychain(identifier: cn)
         super.init()
-        if options.contains(.overwriteKeychain) {
+        if overwriteExisting {
             self.keychain.clear()
         }
         self.keychain.privateKey = privateKey
         self.keychain.certificate = certificate
-        if self.expiresSoon && (options.contains(.downloadLatest) || options.contains(.autoRenew)) {
-            Task {
-                do {
-                    if options.contains(.autoRenew) && certificate.isRenewable {
-                        try await self.renewCertificate()
-                    } else {
-                        try await self.downloadLatestCertificate()
-                    }
-                } catch {
-                    NSLog("Failed to download latest certificate: \(error)")
-                }
-            }
-        }
     }
     
     /// Sign a message
@@ -182,100 +178,30 @@ import CertificateSigningRequest
         return signature as Data
     }
     
-    @objc public func evaluateTrust(anchorCertificates: [SecCertificate]) throws {
-        var trust: SecTrust?
-        guard SecTrustCreateWithCertificates([self.certificate] as CFTypeRef, SecPolicyCreateBasicX509(), &trust) == errSecSuccess, trust != nil else {
-            throw IdentityError.failedToCreateTrust
+    /// Update identity certificate
+    ///
+    /// The new certificate must have the same public key as the current certificate and must expire after the current certificate.
+    /// - Parameter certificate: Certificate replacing the existing one
+    /// - Since: 3.1.0
+    public func updateCertificate(_ certificate: SecCertificate) throws {
+        let existingCert = self.certificate
+        guard certificate.expiresAfter(existingCert) else {
+            throw CertificateError.expiresBeforeCurrentCertificate
         }
-        SecTrustSetAnchorCertificates(trust!, anchorCertificates as CFArray)
-        var error: CFError?
-        let trusted = SecTrustEvaluateWithError(trust!, &error)
-        if !trusted {
-            if let err = error {
-                throw err
-            } else {
-                throw IdentityError.certificateNotTrusted
-            }
+        guard certificate.hasSamePublicKey(as: existingCert) else {
+            throw CertificateError.publicKeyDoesNotMatchRegisteredKey
         }
+        self.keychain.certificate = certificate
     }
     
     private func reset() throws {
         self.keychain.clear()
     }
     
-    private var expiresSoon: Bool {
-        guard let expiryDate = self.certificate.expiryDate else {
-            return false
-        }
-        return expiryDate.timeIntervalSinceNow < self.renewalInterval
-    }
-    
-    private func ensurePublicKeyInCertificate(_ certificate: SecCertificate, matchesPublicKeyOfPrivateKey privateKey: SecKey) throws {
-        guard let certPublicKey = certificate.publicKey, let keyPublicKey = SecKeyCopyPublicKey(privateKey), certPublicKey == keyPublicKey else {
-            throw CertificateError.publicKeyDoesNotMatchRegisteredKey
-        }
-    }
-    
-    private func ensureValidSubjectInCertificate(_ certificate: SecCertificate) throws {
-        guard let subject = certificate.commonName, subject == self.commonName else {
-            throw CertificateError.invalidCertificateSubject
-        }
-    }
-    
-    private func certificate(_ cert1: SecCertificate, expiresAfter cert2: SecCertificate) -> Bool {
-        guard let cert1ExpiryDate = cert1.expiryDate, let cert2ExpiryDate = cert2.expiryDate else {
-            return false
-        }
-        return cert1ExpiryDate.compare(cert2ExpiryDate) == .orderedDescending
-    }
-    
-    private func certificate(_ cert1: SecCertificate, hasSamePublicKeyAs cert2: SecCertificate) -> Bool {
-        guard let cert1PublicKey = cert1.publicKey, let cert2PublicKey = cert2.publicKey else {
-            return false
-        }
-        return cert1PublicKey == cert2PublicKey
-    }
-    
-    public func downloadLatestCertificate() async throws {
-        let url = self.renewalURL.appendingPathComponent("api").appendingPathComponent("certificates").appendingPathComponent(self.commonName)
-        let (data, response) = try await URLSession.shared.data(from: url)
-        let certificate = try self.certificateFromHttpResponse(response, data: data)
-        if self.certificate(certificate, expiresAfter: self.certificate) {
-            self.keychain.certificate = certificate
-        }
-    }
-    
-    public func renewCertificate() async throws {
-        guard self.certificate.isRenewable else {
-            return
-        }
-        let csr = try self.createRenewalCSR()
-        let url = self.renewalURL.appendingPathComponent("api").appendingPathComponent("certificates").appendingPathComponent(self.commonName)
-        var request = URLRequest(url: url)
-        request.httpMethod = "post"
-        request.httpBody = csr.data(using: .utf8)!
-        let (data, response) = try await URLSession.shared.data(for: request)
-        let certificate = try self.certificateFromHttpResponse(response, data: data)
-        if self.certificate(certificate, expiresAfter: self.certificate) {
-            self.keychain.certificate = certificate
-        }
-    }
-    
-    private func certificateFromHttpResponse(_ response: URLResponse, data: Data) throws -> SecCertificate {
-        guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode < 400, let pem = String(data: data, encoding: .utf8) else {
-            throw IOError.downloadFailed
-        }
-        guard let certificate = try SecCertificate.certificatesFromPEMString(pem).sorted(by: { cert1, cert2 in
-            self.certificate(cert1, expiresAfter: cert2)
-        }).first(where: { cert in
-            self.certificate(cert, hasSamePublicKeyAs: self.certificate)
-        }) else {
-            throw CertificateError.failedToCreateCertificateFromData
-        }
-        return certificate
-    }
-    
-    private func createRenewalCSR() throws -> String {
+    /// Create a certificate signing request (CSR) to renew the identity
+    /// - Returns: String with PEM encoded certificat esigning request
+    /// - Since: 3.1.0
+    public func createRenewalCSR() throws -> String {
         guard let publicKey = self.certificate.publicKey else {
             throw IdentityError.failedToExtractPublicKey
         }

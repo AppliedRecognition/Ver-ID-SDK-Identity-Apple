@@ -156,6 +156,44 @@ public extension SecCertificate {
         return issuer == .standalone || issuer == .reporting
     }
     
+    func expiresAfter(_ certificate: SecCertificate) -> Bool {
+        guard let cert1ExpiryDate = self.expiryDate, let cert2ExpiryDate = certificate.expiryDate else {
+            return false
+        }
+        return cert1ExpiryDate.compare(cert2ExpiryDate) == .orderedDescending
+    }
+    
+    func hasSamePublicKey(as certificate: SecCertificate) -> Bool {
+        guard let cert1PublicKey = self.publicKey, let cert2PublicKey = certificate.publicKey else {
+            return false
+        }
+        return cert1PublicKey == cert2PublicKey
+    }
+    
+    func publicKeyMatchesPrivateKey(_ privateKey: SecKey) -> Bool {
+        guard let certPublicKey = self.publicKey, let keyPublicKey = SecKeyCopyPublicKey(privateKey), certPublicKey == keyPublicKey else {
+            return false
+        }
+        return true
+    }
+    
+    func evaluateTrust(anchorCertificates: [SecCertificate]) throws {
+        var trust: SecTrust?
+        guard SecTrustCreateWithCertificates([self] as CFTypeRef, SecPolicyCreateBasicX509(), &trust) == errSecSuccess, trust != nil else {
+            throw IdentityError.failedToCreateTrust
+        }
+        SecTrustSetAnchorCertificates(trust!, anchorCertificates as CFArray)
+        var error: CFError?
+        let trusted = SecTrustEvaluateWithError(trust!, &error)
+        if !trusted {
+            if let err = error {
+                throw err
+            } else {
+                throw IdentityError.certificateNotTrusted
+            }
+        }
+    }
+    
 //    var issuer: String? = {
 //        let data = SecCertificateCopyData(cert) as Data
 //        guard let decoded = try? ASN1Decoder(schema: Certificate.asn1Schema).decode(Certificate.self, from: data) else {

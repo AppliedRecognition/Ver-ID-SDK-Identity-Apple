@@ -36,6 +36,7 @@ import Foundation
     case failedToCopyPublicKey
     case missingExpiryDate
     case failedToFindIssuer
+    case expiresBeforeCurrentCertificate
 }
 
 /// Errors related to digital identity
@@ -70,6 +71,9 @@ import Foundation
     case failedToCreateCertificateSigningRequest
     case failedToCreateTrust
     case certificateNotTrusted
+    case invalidURL
+    case unsupportedLicenceFileVersion
+    case failedToReadPassword
 }
 
 /// Errors related to cryptographic key operations

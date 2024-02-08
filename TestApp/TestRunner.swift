@@ -70,7 +70,7 @@ final class TestRunner: ObservableObject {
         throw "Failed to copy key attributes"
     }
     
-    private func createIdentity(expiryDays: Int = 7, options: VerIDIdentity.Options = .default, issuer: CA = .standalone) throws -> VerIDIdentity {
+    private func createIdentity(expiryDays: Int = 7, overwriteExisting: Bool = false, issuer: CA = .standalone) throws -> VerIDIdentity {
         guard let privateKey = self.identityPrivateKey else {
             throw KeyError.failedToCreatePrivateKey
         }
@@ -80,13 +80,13 @@ final class TestRunner: ObservableObject {
                 throw "Public key in certificate and private key must match"
             }
         }
-        return try VerIDIdentity(certificate: cert, privateKey: privateKey, options: options)
+        return try VerIDIdentity(certificate: cert, privateKey: privateKey, overwriteExisting: overwriteExisting)
     }
     
     init() {
         self.tests = [
             TestSpec("Create client", description: "Create an instance of identity client.") {
-                _ = try self.createIdentity(options: .overwriteKeychain)
+                _ = try self.createIdentity(overwriteExisting: true)
             },
             TestSpec("Fail without credentials", description: "Should fail to create an instance of identity client when URL and password are set to nil.") {
                 do {
@@ -98,7 +98,7 @@ final class TestRunner: ObservableObject {
             },
             TestSpec("Fail without password", description: "Should fail to create an instance of identity client without a password.") {
                 do {
-                    _ = try VerIDIdentity(url: self.identityFileURL, options: .overwriteKeychain)
+                    _ = try VerIDIdentity(url: self.identityFileURL, overwriteExisting: true)
                 } catch {
                     return
                 }
@@ -106,25 +106,25 @@ final class TestRunner: ObservableObject {
             },
             TestSpec("Fail with invalid password", description: "Should fail to create an instance of identity client with incorrect password.") {
                 do {
-                    _ = try VerIDIdentity(url: self.identityFileURL, password: "nonsense", options: .overwriteKeychain)
+                    _ = try VerIDIdentity(url: self.identityFileURL, password: "nonsense", overwriteExisting: true)
                 } catch {
                     return
                 }
                 throw "Should not succeed"
             },
             TestSpec("Common name matches", description: "The common name in the identity client's licence certificate should match \(self.commonName).") {
-                let identity = try self.createIdentity(options: .overwriteKeychain)
+                let identity = try self.createIdentity(overwriteExisting: true)
                 if identity.commonName != self.commonName {
                     throw "Invalid CN: \(identity.commonName)"
                 }
             },
             TestSpec("Sign message", description: "Use identity client to cryptographically sign a message.") {
-                let identity = try self.createIdentity(options: .overwriteKeychain)
+                let identity = try self.createIdentity(overwriteExisting: true)
                 let message = Data([UInt8](repeating: 0, count: 8))
                 _ = try identity.sign(message)
             },
             TestSpec("Verify signature", description: "Verify a signature of a message signed by the identity client.") {
-                let identity = try self.createIdentity(options: .overwriteKeychain)
+                let identity = try self.createIdentity(overwriteExisting: true)
                 let message = Data([UInt8](repeating: 0, count: 8))
                 let signature = try identity.sign(message)
                 guard let key = identity.certificate.publicKey else {
@@ -139,11 +139,11 @@ final class TestRunner: ObservableObject {
                 }
             },
             TestSpec("Evaluate trust", description: "Evaluate trust in the identity client's certificate.") {
-                let identity = try self.createIdentity(options: .overwriteKeychain)
-                try identity.evaluateTrust(anchorCertificates: self.anchorCertificates)
+                let identity = try self.createIdentity(overwriteExisting: true)
+                try identity.certificate.evaluateTrust(anchorCertificates: self.anchorCertificates)
             },
             TestSpec("Fail trust on expired cert", description: "Trust evaluation of the identity client's certificate should fail if the certificate is expired.") {
-                let identity = try self.createIdentity(expiryDays: -1, options: .overwriteKeychain)
+                let identity = try self.createIdentity(expiryDays: -1, overwriteExisting: true)
                 guard let expiry = identity.certificate.expiryDate else {
                     throw "Certificate does not have an expiry date"
                 }
@@ -154,14 +154,14 @@ final class TestRunner: ObservableObject {
                     throw "Certificate should have expired (actual expiry date \(dateFormat.string(from: expiry)))"
                 }
                 do {
-                    try identity.evaluateTrust(anchorCertificates: self.anchorCertificates)
+                    try identity.certificate.evaluateTrust(anchorCertificates: self.anchorCertificates)
                 } catch {
                     return
                 }
                 throw "Should fail on expired cert"
             },
             TestSpec("Get certificate serial number", description: "Get the serial number in the identity client's certificate. Should be \(self.certificateSerialNumber).") {
-                let identity = try self.createIdentity(options: .overwriteKeychain)
+                let identity = try self.createIdentity(overwriteExisting: true)
                 guard let serial = identity.certificate.serialNumber else {
                     throw "Failed to get serial number from certificate"
                 }
@@ -170,52 +170,13 @@ final class TestRunner: ObservableObject {
                 }
             },
             TestSpec("Update certificate with older", description: "Create an identity, then create another instance with an older certificate. The new identity should have the newer cert") {
-                let identity = try self.createIdentity(expiryDays: 30, options: .overwriteKeychain)
-                let identity2 = try self.createIdentity(expiryDays: 10, options: [])
+                let identity = try self.createIdentity(expiryDays: 30, overwriteExisting: true)
+                let identity2 = try self.createIdentity(expiryDays: 10)
                 guard let exp1 = identity.certificate.expiryDate, let exp2 = identity2.certificate.expiryDate else {
                     throw "Expiry not set"
                 }
                 guard exp1.compare(exp2) == .orderedSame else {
                     throw "Identity created with an older expiry date than a previous identity should inherit previous identity's certificate"
-                }
-            },
-            TestSpec("Download latest certificate", description: "Download latest certificate and place it in keychain") {
-                let identity = try self.createIdentity(options: .overwriteKeychain)
-                guard let originalCertExpiry = identity.certificate.expiryDate else {
-                    throw "Supplied certificate doesn't have an expiry date"
-                }
-                try await identity.downloadLatestCertificate()
-                guard let newCertExpiry = identity.certificate.expiryDate else {
-                    throw "Renewed certificate doesn't have an expiry date"
-                }
-                if newCertExpiry.compare(originalCertExpiry) != .orderedDescending {
-                    throw "New certificate should expire after original"
-                }
-            },
-            TestSpec("Renew certificate", description: "Request a certificate renewal") {
-                let identity = try self.createIdentity(options: .overwriteKeychain)
-                guard let originalCertExpiry = identity.certificate.expiryDate else {
-                    throw "Supplied certificate doesn't have an expiry date"
-                }
-                try await identity.renewCertificate()
-                guard let newCertExpiry = identity.certificate.expiryDate else {
-                    throw "Renewed certificate doesn't have an expiry date"
-                }
-                if newCertExpiry.compare(originalCertExpiry) != .orderedDescending {
-                    throw "New certificate should expire after original"
-                }
-            },
-            TestSpec("Fail to renew evaluation licence", description: "Evaluation licence certificate should not be automatically renewed") {
-                let identity = try self.createIdentity(options: .overwriteKeychain, issuer: .evaluation)
-                guard let originalCertExpiry = identity.certificate.expiryDate else {
-                    throw "Supplied certificate doesn't have an expiry date"
-                }
-                try await identity.renewCertificate()
-                guard let newCertExpiry = identity.certificate.expiryDate else {
-                    throw "Renewed certificate doesn't have an expiry date"
-                }
-                guard newCertExpiry.compare(originalCertExpiry) == .orderedSame else {
-                    throw "New certificate should have the same expiry date as the old one"
                 }
             },
             TestSpec("Fail with different key", description: "Fail to replace existing certificate with one that has a different public key") {
@@ -224,13 +185,13 @@ final class TestRunner: ObservableObject {
                     throw KeyError.failedToCreatePrivateKey
                 }
                 let cert = try CertificateUtil.generateCertificate(commonName: self.commonName, publicKey: privateKey.publicKey!, signingKey: signingKey, issuerCommonName: CA.standalone.rawValue, expiryDays: 2)
-                let identity = try VerIDIdentity(certificate: cert, privateKey: privateKey)
+                let identity = try self.createIdentity(overwriteExisting: true)
                 do {
-                    try await identity.downloadLatestCertificate()
+                    try identity.updateCertificate(cert)
                 } catch {
                     return
                 }
-                throw "Certificate download should fail"
+                throw "Certificate replacement should fail"
             }
         ]
         self.anchorCertificates = (try? self.createAnchorCertificates()) ?? []

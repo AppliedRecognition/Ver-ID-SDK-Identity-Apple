@@ -60,7 +60,7 @@ class Keychain {
         }
         set {
             if let cert = newValue {
-                if let existingCert = self.certificate, let existingPublicKey = existingCert.publicKey, let newPublicKey = cert.publicKey, existingPublicKey == newPublicKey, let existingExpiry = existingCert.expiryDate, let newExpiry = cert.expiryDate, existingExpiry.compare(newExpiry) == .orderedDescending {
+                if let existingCert = self.certificate, (existingCert.expiresAfter(cert) || !existingCert.hasSamePublicKey(as: cert)) {
                     return
                 }
                 let data = SecCertificateCopyData(cert)
