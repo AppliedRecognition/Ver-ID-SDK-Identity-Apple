@@ -3,3 +3,4 @@ VerIDSDKIdentity.xcodeproj/xcuserdata
 build
 .build
 Package.resolved
+**/xcuserdata

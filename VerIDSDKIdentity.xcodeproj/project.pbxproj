@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,17 +13,40 @@
 		3B40DE6B23FF1FF900CA0C94 /* VerIDIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6A23FF1FF800CA0C94 /* VerIDIdentity.swift */; };
 		3B40DE6D23FF213B00CA0C94 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6C23FF213B00CA0C94 /* Errors.swift */; };
 		3B40DE6F23FF22CB00CA0C94 /* SecCertificateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */; };
-		3B98498D240037C500DF2B5F /* Ver-ID identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */; };
+		3B51FD1A2B51547000605EA8 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3B51FD192B51547000605EA8 /* OHHTTPStubsSwift */; };
+		3B51FD1C2B5156FA00605EA8 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 3B51FD1B2B5156FA00605EA8 /* OHHTTPStubs */; };
+		3B51FD2B2B51C0A100605EA8 /* Ver-ID identity current.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3B51FD272B51C05700605EA8 /* Ver-ID identity current.p12 */; };
+		3B51FD2E2B51CD4E00605EA8 /* futurecert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3B51FD2D2B51CD4D00605EA8 /* futurecert.pem */; };
+		3B9537132B4EB7B9009688F8 /* CertificateSigningRequest in Frameworks */ = {isa = PBXBuildFile; productRef = 3B9537122B4EB7B9009688F8 /* CertificateSigningRequest */; };
 		3B98499124006B6E00DF2B5F /* VerIDLicence.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B40DE5323FF1FB400CA0C94 /* VerIDLicence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B98499324006B6E00DF2B5F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6C23FF213B00CA0C94 /* Errors.swift */; };
 		3B98499424006B6E00DF2B5F /* VerIDIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6A23FF1FF800CA0C94 /* VerIDIdentity.swift */; };
 		3B98499524006B6E00DF2B5F /* SecCertificateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */; };
 		3B9849A124006D5600DF2B5F /* VerIDSDKIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40DE5E23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift */; };
 		3B9849A324006D5600DF2B5F /* VerIDSDKIdentity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */; };
-		3B9849A524006D5600DF2B5F /* Ver-ID identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */; };
-		3B9D074727BFFF6C00E9F701 /* VerID identity expired.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3B9D074627BFFF6C00E9F701 /* VerID identity expired.p12 */; };
-		3B9D074827BFFF6C00E9F701 /* VerID identity expired.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3B9D074627BFFF6C00E9F701 /* VerID identity expired.p12 */; };
 		3BA97F3428514A30008051AB /* ASN1Decoder in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA97F3328514A30008051AB /* ASN1Decoder */; };
+		3BBE755E2B55439700210FE8 /* standalone_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3B51FD242B51A21A00605EA8 /* standalone_key.pem */; };
+		3BBE75602B554C4D00210FE8 /* standalone_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE755F2B554C4D00210FE8 /* standalone_key.der */; };
+		3BBE75642B55BAD700210FE8 /* Shield in Frameworks */ = {isa = PBXBuildFile; productRef = 3BBE75632B55BAD700210FE8 /* Shield */; };
+		3BBE75662B55BB7F00210FE8 /* CertificateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE75652B55BB7F00210FE8 /* CertificateUtil.swift */; };
+		3BBE75672B55C47600210FE8 /* CertificateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE75652B55BB7F00210FE8 /* CertificateUtil.swift */; };
+		3BCA87B22B506C8000C0CB66 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA87B12B506C8000C0CB66 /* TestAppApp.swift */; };
+		3BCA87B42B506C8000C0CB66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA87B32B506C8000C0CB66 /* ContentView.swift */; };
+		3BCA87B62B506C8300C0CB66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA87B52B506C8300C0CB66 /* Assets.xcassets */; };
+		3BCA87B92B506C8300C0CB66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA87B82B506C8300C0CB66 /* Preview Assets.xcassets */; };
+		3BCA87C32B506C8400C0CB66 /* TestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA87C22B506C8400C0CB66 /* TestAppTests.swift */; };
+		3BCA87DA2B506CF600C0CB66 /* VerIDSDKIdentity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */; };
+		3BCA87DB2B506CF600C0CB66 /* VerIDSDKIdentity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BCA87E42B5095A200C0CB66 /* Ver-ID identity expired.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA87E12B5095A100C0CB66 /* Ver-ID identity expired.p12 */; };
+		3BCA87E62B50972000C0CB66 /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA87E52B50972000C0CB66 /* TestRunner.swift */; };
+		3BD7C3AF2B5AFE5100A8BA4E /* ASN1Decoder in Frameworks */ = {isa = PBXBuildFile; productRef = 3BD7C3AE2B5AFE5100A8BA4E /* ASN1Decoder */; };
+		3BD7C3B32B5B38A900A8BA4E /* ASN1Decoder in Frameworks */ = {isa = PBXBuildFile; productRef = 3BD7C3B22B5B38A900A8BA4E /* ASN1Decoder */; };
+		3BDD2C9C2B57407D0027E03F /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD2C9B2B572FF50027E03F /* Keychain.swift */; };
+		3BDD2C9D2B5740810027E03F /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD2C9B2B572FF50027E03F /* Keychain.swift */; };
+		3BF5C93B2B5EC46400D198E7 /* CA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5C93A2B5EC46400D198E7 /* CA.swift */; };
+		3BF5C93C2B5EC46400D198E7 /* CA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5C93A2B5EC46400D198E7 /* CA.swift */; };
+		3BF5C93E2B5EDE0C00D198E7 /* SecKeyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5C93D2B5EDE0C00D198E7 /* SecKeyExtension.swift */; };
+		3BF5C93F2B5EDE0C00D198E7 /* SecKeyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5C93D2B5EDE0C00D198E7 /* SecKeyExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +64,35 @@
 			remoteGlobalIDString = 3B98498F24006B6E00DF2B5F;
 			remoteInfo = VerIDSDKIdentityMacOS;
 		};
+		3BCA87BF2B506C8400C0CB66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B40DE4723FF1FB400CA0C94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BCA87AE2B506C7F00C0CB66;
+			remoteInfo = TestApp;
+		};
+		3BCA87DC2B506CF600C0CB66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B40DE4723FF1FB400CA0C94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B40DE4F23FF1FB400CA0C94;
+			remoteInfo = VerIDSDKIdentityiOS;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3BCA87DE2B506CF600C0CB66 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3BCA87DB2B506CF600C0CB66 /* VerIDSDKIdentity.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerIDSDKIdentity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,15 +104,33 @@
 		3B40DE6A23FF1FF800CA0C94 /* VerIDIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerIDIdentity.swift; sourceTree = "<group>"; };
 		3B40DE6C23FF213B00CA0C94 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3B40DE6E23FF22CB00CA0C94 /* SecCertificateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecCertificateExtension.swift; sourceTree = "<group>"; };
-		3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity.p12"; sourceTree = "<group>"; };
+		3B51FD202B518B7B00605EA8 /* gencerts.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = gencerts.sh; sourceTree = "<group>"; };
+		3B51FD242B51A21A00605EA8 /* standalone_key.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = standalone_key.pem; path = TestAppTests/standalone_key.pem; sourceTree = SOURCE_ROOT; };
+		3B51FD262B51BCEA00605EA8 /* Dockerfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dockerfile; sourceTree = "<group>"; };
+		3B51FD272B51C05700605EA8 /* Ver-ID identity current.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity current.p12"; sourceTree = "<group>"; };
+		3B51FD2D2B51CD4D00605EA8 /* futurecert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = futurecert.pem; sourceTree = "<group>"; };
 		3B98498E24005C3D00DF2B5F /* Ver-ID-SDK-Identity.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Ver-ID-SDK-Identity.podspec"; sourceTree = SOURCE_ROOT; };
 		3B98499B24006B6E00DF2B5F /* VerIDSDKIdentity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerIDSDKIdentity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B98499C24006B6E00DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/Ver-ID-SDK-Identity-Apple/VerIDSDKIdentity/MacOS-Info.plist"; sourceTree = "<absolute>"; };
 		3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerIDSDKIdentityTestsMacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9849AA24006D5600DF2B5F /* MacOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MacOS-Info.plist"; path = "/Users/jakub/Applied-Recognition/Ver-ID-SDK-Identity-Apple/VerIDSDKIdentityTests/MacOS-Info.plist"; sourceTree = "<absolute>"; };
 		3B9849AB24006F4E00DF2B5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		3B9D074627BFFF6C00E9F701 /* VerID identity expired.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VerID identity expired.p12"; sourceTree = "<group>"; };
 		3BA97F26285138B6008051AB /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
+		3BBE755F2B554C4D00210FE8 /* standalone_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = standalone_key.der; path = VerIDSDKIdentityTests/standalone_key.der; sourceTree = SOURCE_ROOT; };
+		3BBE75652B55BB7F00210FE8 /* CertificateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateUtil.swift; sourceTree = "<group>"; };
+		3BCA87AF2B506C8000C0CB66 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BCA87B12B506C8000C0CB66 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
+		3BCA87B32B506C8000C0CB66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3BCA87B52B506C8300C0CB66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BCA87B82B506C8300C0CB66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3BCA87BE2B506C8400C0CB66 /* TestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BCA87C22B506C8400C0CB66 /* TestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppTests.swift; sourceTree = "<group>"; };
+		3BCA87D92B506CB900C0CB66 /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
+		3BCA87E12B5095A100C0CB66 /* Ver-ID identity expired.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity expired.p12"; sourceTree = "<group>"; };
+		3BCA87E52B50972000C0CB66 /* TestRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunner.swift; sourceTree = "<group>"; };
+		3BDD2C9B2B572FF50027E03F /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		3BF5C93A2B5EC46400D198E7 /* CA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CA.swift; sourceTree = "<group>"; };
+		3BF5C93D2B5EDE0C00D198E7 /* SecKeyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecKeyExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD7C3B32B5B38A900A8BA4E /* ASN1Decoder in Frameworks */,
+				3B9537132B4EB7B9009688F8 /* CertificateSigningRequest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +167,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3BCA87AC2B506C7F00C0CB66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BCA87DA2B506CF600C0CB66 /* VerIDSDKIdentity.framework in Frameworks */,
+				3BBE75642B55BAD700210FE8 /* Shield in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BCA87BB2B506C8300C0CB66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B51FD1A2B51547000605EA8 /* OHHTTPStubsSwift in Frameworks */,
+				3B51FD1C2B5156FA00605EA8 /* OHHTTPStubs in Frameworks */,
+				3BD7C3AF2B5AFE5100A8BA4E /* ASN1Decoder in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -105,6 +195,8 @@
 				3BA97F26285138B6008051AB /* Package.swift */,
 				3B40DE5223FF1FB400CA0C94 /* VerIDSDKIdentity */,
 				3B40DE5D23FF1FB400CA0C94 /* VerIDSDKIdentityTests */,
+				3BCA87B02B506C8000C0CB66 /* TestApp */,
+				3BCA87C12B506C8400C0CB66 /* TestAppTests */,
 				3B40DE5123FF1FB400CA0C94 /* Products */,
 				3BA97F3228514A30008051AB /* Frameworks */,
 			);
@@ -117,6 +209,8 @@
 				3B40DE5923FF1FB400CA0C94 /* VerIDSDKIdentityTestsiOS.xctest */,
 				3B98499B24006B6E00DF2B5F /* VerIDSDKIdentity.framework */,
 				3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */,
+				3BCA87AF2B506C8000C0CB66 /* TestApp.app */,
+				3BCA87BE2B506C8400C0CB66 /* TestAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +226,9 @@
 				3B98498E24005C3D00DF2B5F /* Ver-ID-SDK-Identity.podspec */,
 				3B98499C24006B6E00DF2B5F /* MacOS-Info.plist */,
 				3B9849AB24006F4E00DF2B5F /* README.md */,
+				3BDD2C9B2B572FF50027E03F /* Keychain.swift */,
+				3BF5C93A2B5EC46400D198E7 /* CA.swift */,
+				3BF5C93D2B5EDE0C00D198E7 /* SecKeyExtension.swift */,
 			);
 			path = VerIDSDKIdentity;
 			sourceTree = "<group>";
@@ -139,9 +236,7 @@
 		3B40DE5D23FF1FB400CA0C94 /* VerIDSDKIdentityTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B9D074627BFFF6C00E9F701 /* VerID identity expired.p12 */,
 				3B9849AA24006D5600DF2B5F /* MacOS-Info.plist */,
-				3B98498C240037C500DF2B5F /* Ver-ID identity.p12 */,
 				3B40DE5E23FF1FB400CA0C94 /* VerIDSDKIdentityTests.swift */,
 				3B40DE6023FF1FB400CA0C94 /* Info.plist */,
 			);
@@ -153,6 +248,43 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3BCA87B02B506C8000C0CB66 /* TestApp */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA87D92B506CB900C0CB66 /* TestApp.entitlements */,
+				3BCA87B12B506C8000C0CB66 /* TestAppApp.swift */,
+				3BCA87B32B506C8000C0CB66 /* ContentView.swift */,
+				3BCA87B52B506C8300C0CB66 /* Assets.xcassets */,
+				3BCA87B72B506C8300C0CB66 /* Preview Content */,
+				3BCA87E52B50972000C0CB66 /* TestRunner.swift */,
+				3BBE75652B55BB7F00210FE8 /* CertificateUtil.swift */,
+			);
+			path = TestApp;
+			sourceTree = "<group>";
+		};
+		3BCA87B72B506C8300C0CB66 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA87B82B506C8300C0CB66 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3BCA87C12B506C8400C0CB66 /* TestAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BBE755F2B554C4D00210FE8 /* standalone_key.der */,
+				3B51FD2D2B51CD4D00605EA8 /* futurecert.pem */,
+				3B51FD272B51C05700605EA8 /* Ver-ID identity current.p12 */,
+				3B51FD202B518B7B00605EA8 /* gencerts.sh */,
+				3BCA87E12B5095A100C0CB66 /* Ver-ID identity expired.p12 */,
+				3B51FD242B51A21A00605EA8 /* standalone_key.pem */,
+				3B51FD262B51BCEA00605EA8 /* Dockerfile */,
+				3BCA87C22B506C8400C0CB66 /* TestAppTests.swift */,
+			);
+			path = TestAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +324,8 @@
 			);
 			name = VerIDSDKIdentityiOS;
 			packageProductDependencies = (
+				3B9537122B4EB7B9009688F8 /* CertificateSigningRequest */,
+				3BD7C3B22B5B38A900A8BA4E /* ASN1Decoder */,
 			);
 			productName = VerIDLicence;
 			productReference = 3B40DE5023FF1FB400CA0C94 /* VerIDSDKIdentity.framework */;
@@ -204,6 +338,7 @@
 				3B40DE5523FF1FB400CA0C94 /* Sources */,
 				3B40DE5623FF1FB400CA0C94 /* Frameworks */,
 				3B40DE5723FF1FB400CA0C94 /* Resources */,
+				3BCA87AA2B5065DF00C0CB66 /* Code Sign */,
 			);
 			buildRules = (
 			);
@@ -256,13 +391,58 @@
 			productReference = 3B9849A924006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3BCA87AE2B506C7F00C0CB66 /* TestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BCA87D02B506C8400C0CB66 /* Build configuration list for PBXNativeTarget "TestApp" */;
+			buildPhases = (
+				3BCA87AB2B506C7F00C0CB66 /* Sources */,
+				3BCA87AC2B506C7F00C0CB66 /* Frameworks */,
+				3BCA87AD2B506C7F00C0CB66 /* Resources */,
+				3BCA87DE2B506CF600C0CB66 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BCA87DD2B506CF600C0CB66 /* PBXTargetDependency */,
+			);
+			name = TestApp;
+			packageProductDependencies = (
+				3BBE75632B55BAD700210FE8 /* Shield */,
+			);
+			productName = TestApp;
+			productReference = 3BCA87AF2B506C8000C0CB66 /* TestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BCA87BD2B506C8300C0CB66 /* TestAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BCA87D32B506C8400C0CB66 /* Build configuration list for PBXNativeTarget "TestAppTests" */;
+			buildPhases = (
+				3BCA87BA2B506C8300C0CB66 /* Sources */,
+				3BCA87BB2B506C8300C0CB66 /* Frameworks */,
+				3BCA87BC2B506C8300C0CB66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BCA87C02B506C8400C0CB66 /* PBXTargetDependency */,
+			);
+			name = TestAppTests;
+			packageProductDependencies = (
+				3B51FD192B51547000605EA8 /* OHHTTPStubsSwift */,
+				3B51FD1B2B5156FA00605EA8 /* OHHTTPStubs */,
+				3BD7C3AE2B5AFE5100A8BA4E /* ASN1Decoder */,
+			);
+			productName = TestAppTests;
+			productReference = 3BCA87BE2B506C8400C0CB66 /* TestAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3B40DE4723FF1FB400CA0C94 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Applied Recognition";
 				TargetAttributes = {
@@ -273,6 +453,13 @@
 					3B40DE5823FF1FB400CA0C94 = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1320;
+					};
+					3BCA87AE2B506C7F00C0CB66 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					3BCA87BD2B506C8300C0CB66 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 3BCA87AE2B506C7F00C0CB66;
 					};
 				};
 			};
@@ -287,6 +474,9 @@
 			mainGroup = 3B40DE4623FF1FB400CA0C94;
 			packageReferences = (
 				3BF2ED9227C5641E00FF271D /* XCRemoteSwiftPackageReference "ASN1Decoder" */,
+				3B9537112B4EB7B9009688F8 /* XCRemoteSwiftPackageReference "CertificateSigningRequest" */,
+				3B51FD182B51547000605EA8 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+				3B51FD212B51911D00605EA8 /* XCRemoteSwiftPackageReference "Shield" */,
 			);
 			productRefGroup = 3B40DE5123FF1FB400CA0C94 /* Products */;
 			projectDirPath = "";
@@ -296,6 +486,8 @@
 				3B40DE5823FF1FB400CA0C94 /* VerIDSDKIdentityTestsiOS */,
 				3B98498F24006B6E00DF2B5F /* VerIDSDKIdentityMacOS */,
 				3B98499D24006D5600DF2B5F /* VerIDSDKIdentityTestsMacOS */,
+				3BCA87AE2B506C7F00C0CB66 /* TestApp */,
+				3BCA87BD2B506C8300C0CB66 /* TestAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,8 +504,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B9D074727BFFF6C00E9F701 /* VerID identity expired.p12 in Resources */,
-				3B98498D240037C500DF2B5F /* Ver-ID identity.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,12 +518,52 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B9D074827BFFF6C00E9F701 /* VerID identity expired.p12 in Resources */,
-				3B9849A524006D5600DF2B5F /* Ver-ID identity.p12 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BCA87AD2B506C7F00C0CB66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BCA87B92B506C8300C0CB66 /* Preview Assets.xcassets in Resources */,
+				3B51FD2B2B51C0A100605EA8 /* Ver-ID identity current.p12 in Resources */,
+				3BCA87E42B5095A200C0CB66 /* Ver-ID identity expired.p12 in Resources */,
+				3BCA87B62B506C8300C0CB66 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BCA87BC2B506C8300C0CB66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B51FD2E2B51CD4E00605EA8 /* futurecert.pem in Resources */,
+				3BBE755E2B55439700210FE8 /* standalone_key.pem in Resources */,
+				3BBE75602B554C4D00210FE8 /* standalone_key.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BCA87AA2B5065DF00C0CB66 /* Code Sign */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Code Sign";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "codesign --verify --force --sign \"$CODE_SIGN_IDENTITY\" \"$CODESIGNING_FOLDER_PATH\"\necho Signed \"$CODESIGNING_FOLDER_PATH\" using \"$CODE_SIGN_IDENTITY\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B40DE4C23FF1FB400CA0C94 /* Sources */ = {
@@ -341,7 +571,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B40DE6D23FF213B00CA0C94 /* Errors.swift in Sources */,
+				3BDD2C9C2B57407D0027E03F /* Keychain.swift in Sources */,
 				3B40DE6B23FF1FF900CA0C94 /* VerIDIdentity.swift in Sources */,
+				3BF5C93E2B5EDE0C00D198E7 /* SecKeyExtension.swift in Sources */,
+				3BF5C93B2B5EC46400D198E7 /* CA.swift in Sources */,
 				3B40DE6F23FF22CB00CA0C94 /* SecCertificateExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +592,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B98499324006B6E00DF2B5F /* Errors.swift in Sources */,
+				3BDD2C9D2B5740810027E03F /* Keychain.swift in Sources */,
 				3B98499424006B6E00DF2B5F /* VerIDIdentity.swift in Sources */,
+				3BF5C93F2B5EDE0C00D198E7 /* SecKeyExtension.swift in Sources */,
+				3BF5C93C2B5EC46400D198E7 /* CA.swift in Sources */,
 				3B98499524006B6E00DF2B5F /* SecCertificateExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +605,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B9849A124006D5600DF2B5F /* VerIDSDKIdentityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BCA87AB2B506C7F00C0CB66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BCA87B42B506C8000C0CB66 /* ContentView.swift in Sources */,
+				3BBE75662B55BB7F00210FE8 /* CertificateUtil.swift in Sources */,
+				3BCA87E62B50972000C0CB66 /* TestRunner.swift in Sources */,
+				3BCA87B22B506C8000C0CB66 /* TestAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BCA87BA2B506C8300C0CB66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BCA87C32B506C8400C0CB66 /* TestAppTests.swift in Sources */,
+				3BBE75672B55C47600210FE8 /* CertificateUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +648,16 @@
 		3BA97F2F285140EE008051AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 3BA97F2E285140EE008051AB /* ASN1Decoder */;
+		};
+		3BCA87C02B506C8400C0CB66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BCA87AE2B506C7F00C0CB66 /* TestApp */;
+			targetProxy = 3BCA87BF2B506C8400C0CB66 /* PBXContainerItemProxy */;
+		};
+		3BCA87DD2B506CF600C0CB66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B40DE4F23FF1FB400CA0C94 /* VerIDSDKIdentityiOS */;
+			targetProxy = 3BCA87DC2B506CF600C0CB66 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -447,7 +713,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 3.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -505,7 +772,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 3.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -526,13 +794,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				DEVELOPMENT_TEAM = CSD8L9EK66;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VerIDSDKIdentity/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -556,13 +824,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				DEVELOPMENT_TEAM = CSD8L9EK66;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VerIDSDKIdentity/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,7 +851,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				DEVELOPMENT_TEAM = CSD8L9EK66;
 				INFOPLIST_FILE = VerIDSDKIdentityTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -604,7 +872,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3DPTJHF24M;
+				DEVELOPMENT_TEAM = CSD8L9EK66;
 				INFOPLIST_FILE = VerIDSDKIdentityTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,7 +906,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
 				PRODUCT_NAME = VerIDSDKIdentity;
 				SDKROOT = macosx;
@@ -670,7 +937,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.verid.licenceclient;
 				PRODUCT_NAME = VerIDSDKIdentity;
 				SDKROOT = macosx;
@@ -718,6 +984,134 @@
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3BCA87D12B506C8400C0CB66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = CSD8L9EK66;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3BCA87D22B506C8400C0CB66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = CSD8L9EK66;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3BCA87D42B506C8400C0CB66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CSD8L9EK66;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.TestAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestApp";
+			};
+			name = Debug;
+		};
+		3BCA87D52B506C8400C0CB66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CSD8L9EK66;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.TestAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestApp";
 			};
 			name = Release;
 		};
@@ -769,9 +1163,51 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3BCA87D02B506C8400C0CB66 /* Build configuration list for PBXNativeTarget "TestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BCA87D12B506C8400C0CB66 /* Debug */,
+				3BCA87D22B506C8400C0CB66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BCA87D32B506C8400C0CB66 /* Build configuration list for PBXNativeTarget "TestAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BCA87D42B506C8400C0CB66 /* Debug */,
+				3BCA87D52B506C8400C0CB66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3B51FD182B51547000605EA8 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
+		3B51FD212B51911D00605EA8 /* XCRemoteSwiftPackageReference "Shield" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/outfoxx/Shield.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
+		3B9537112B4EB7B9009688F8 /* XCRemoteSwiftPackageReference "CertificateSigningRequest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cbaker6/CertificateSigningRequest.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.0;
+			};
+		};
 		3BF2ED9227C5641E00FF271D /* XCRemoteSwiftPackageReference "ASN1Decoder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/filom/ASN1Decoder.git";
@@ -783,6 +1219,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3B51FD192B51547000605EA8 /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B51FD182B51547000605EA8 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+		3B51FD1B2B5156FA00605EA8 /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B51FD182B51547000605EA8 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		3B9537122B4EB7B9009688F8 /* CertificateSigningRequest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B9537112B4EB7B9009688F8 /* XCRemoteSwiftPackageReference "CertificateSigningRequest" */;
+			productName = CertificateSigningRequest;
+		};
 		3BA97F2C285140E8008051AB /* ASN1Decoder */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3BF2ED9227C5641E00FF271D /* XCRemoteSwiftPackageReference "ASN1Decoder" */;
@@ -794,6 +1245,21 @@
 			productName = ASN1Decoder;
 		};
 		3BA97F3328514A30008051AB /* ASN1Decoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BF2ED9227C5641E00FF271D /* XCRemoteSwiftPackageReference "ASN1Decoder" */;
+			productName = ASN1Decoder;
+		};
+		3BBE75632B55BAD700210FE8 /* Shield */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B51FD212B51911D00605EA8 /* XCRemoteSwiftPackageReference "Shield" */;
+			productName = Shield;
+		};
+		3BD7C3AE2B5AFE5100A8BA4E /* ASN1Decoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BF2ED9227C5641E00FF271D /* XCRemoteSwiftPackageReference "ASN1Decoder" */;
+			productName = ASN1Decoder;
+		};
+		3BD7C3B22B5B38A900A8BA4E /* ASN1Decoder */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3BF2ED9227C5641E00FF271D /* XCRemoteSwiftPackageReference "ASN1Decoder" */;
 			productName = ASN1Decoder;

@@ -8,6 +8,7 @@
 
 import XCTest
 import Security
+import ASN1Decoder
 @testable import VerIDSDKIdentity
 
 class VerIDLicenceTests: XCTestCase {
@@ -177,6 +178,70 @@ class VerIDLicenceTests: XCTestCase {
         }
     }
     
+    func testEvaluateExpiredCert_fails() {
+        guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
+            return
+        }
+        do {
+            let url = try self.identityFileURL()
+            let identity = try VerIDIdentity(url: url, password: self.correctPassword)
+            let der = SecCertificateCopyData(identity.certificate)
+            let x509 = try X509Certificate(data: der as Data)
+            guard let expiryDate = x509.notAfter else {
+                XCTFail()
+                return
+            }
+            let now = Date.distantFuture
+            XCTAssertLessThan(expiryDate, now)
+            
+            guard let certsURL = URL(string: "https://dev.ver-id.com/licensing/certs") else {
+                XCTFail()
+                return
+            }
+            let pemData = try Data(contentsOf: certsURL)
+            guard let pemString = String(data: pemData, encoding: .utf8) else {
+                XCTFail()
+                return
+            }
+            var certs = try self.certificatesFromPEMString(pemString)
+            XCTAssertGreaterThan(certs.count, 0)
+            guard let anchor = certs.first(where: {
+                guard let issuer = SecCertificateCopyNormalizedIssuerSequence($0) else {
+                    return false
+                }
+                guard let subject = SecCertificateCopyNormalizedSubjectSequence($0) else {
+                    return false
+                }
+                return issuer == subject
+            }) else {
+                XCTFail()
+                return
+            }
+            var trust: SecTrust?
+            certs.append(identity.certificate)
+            guard SecTrustCreateWithCertificates(certs as CFTypeRef, SecPolicyCreateBasicX509(), &trust) == errSecSuccess, trust != nil else {
+                XCTFail()
+                return
+            }
+            SecTrustSetAnchorCertificates(trust!, [anchor] as CFArray)
+            var error: CFError?
+            let trusted: Bool
+            if #available(iOS 12.0, macOS 10.14, macCatalyst 13.0, tvOS 12.0, watchOS 5.0, *) {
+                trusted = SecTrustEvaluateWithError(trust!, &error) && error == nil
+            } else {
+                var result: SecTrustResultType = .unspecified
+                if SecTrustEvaluate(trust!, &result) == errSecSuccess, (result == .proceed || result == .unspecified) {
+                    trusted = true
+                } else {
+                    trusted = false
+                }
+            }
+            XCTAssertTrue(trusted)
+        } catch {
+            XCTFail()
+        }
+    }
+    
     func testGetCertificateSerialNumber_returnsCorrectValue() throws {
         //d509c289-02fa-483c-bd6f-90e8c212e19c
         guard #available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *) else {
@@ -188,7 +253,19 @@ class VerIDLicenceTests: XCTestCase {
         XCTAssertEqual(identity.certificate.serialNumber!, 5)
     }
     
-    private func identityFileURL() throws -> URL {
+//    func testCreateRenewalRequest() throws {
+//        let url = try self.identityFileURL()
+//        let identity = try VerIDIdentity(url: url, password: self.correctPassword)
+//        let csr = try identity.createRenewalRequest()
+//        XCTAssertTrue(csr.contains("-----BEGIN CERTIFICATE REQUEST-----"))
+//        XCTAssertTrue(csr.contains("-----END CERTIFICATE REQUEST-----"))
+//        let attachment = XCTAttachment(string: csr)
+//        attachment.lifetime = .keepAlways
+//        attachment.name = "test.csr"
+//        self.add(attachment)
+//    }
+    
+    private func identityFileURL(fileName: String="Ver-ID identity") throws -> URL {
         guard let url = Bundle(for: type(of: self)).url(forResource: "Ver-ID identity", withExtension: "p12") else {
             throw IdentityError.missingIdentityFile
         }

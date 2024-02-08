@@ -9,6 +9,7 @@
 import Foundation
 import Security
 import CommonCrypto
+import ASN1Decoder
 
 /// - Since: 1.0.0
 @available(iOS 10.3, macOS 10.13, watchOS 3.3, macCatalyst 13.0, tvOS 10.3, *)
@@ -27,7 +28,7 @@ public extension SecCertificate {
     /// Certificate's public key
     /// - Since: 1.0.0
     var publicKey: SecKey? {
-        #if os(macOS)
+#if os(macOS)
         if #available(macOS 10.14, *) {
             return SecCertificateCopyKey(self)
         } else {
@@ -37,15 +38,15 @@ public extension SecCertificate {
             }
             return nil
         }
-        #elseif !targetEnvironment(macCatalyst)
+#elseif !targetEnvironment(macCatalyst)
         if #available(iOS 12.0, macCatalyst 13.0, tvOS 12.0, watchOS 5.0, *) {
             return SecCertificateCopyKey(self)
         } else {
             return SecCertificateCopyPublicKey(self)
         }
-        #else
+#else
         return SecCertificateCopyKey(self)
-        #endif
+#endif
     }
     
     /// Certificate fingerprint as SHA256 hash
@@ -80,28 +81,28 @@ public extension SecCertificate {
     /// - Since: 1.0.0
     var serialNumber: UInt64? {
         let cfData: CFData
-        #if os(iOS)
+#if os(iOS)
         if #available(iOS 11.0, macCatalyst 11.0, *) {
             guard let d = SecCertificateCopySerialNumberData(self, nil) else {
                 return nil
             }
             cfData = d
         } else {
-            #if !targetEnvironment(macCatalyst)
+#if !targetEnvironment(macCatalyst)
             guard let d = SecCertificateCopySerialNumber(self) else {
                 return nil
             }
             cfData = d
-            #else
+#else
             return nil
-            #endif
+#endif
         }
-        #else
+#else
         guard let d = SecCertificateCopySerialNumberData(self, nil) else {
             return nil
         }
         cfData = d
-        #endif
+#endif
         let data = cfData as Data
         if data.count > 8 {
             return nil
@@ -115,13 +116,65 @@ public extension SecCertificate {
         return UInt64(bigEndian: value)
     }
     
+    var expiryDate: Date? {
+        //        guard let summary = SecCertificateCopySubjectSummary(self) as? String else {
+        //            return nil
+        //        }
+        //        let scanner = Scanner(string: summary)
+        //        guard scanner.scanUpToString("Not After ") != nil && scanner.scanString("Not After ") != nil, let expiryDateStr = scanner.scanUpToString(" GMT") else {
+        //            return nil
+        //        }
+        //        let dateFormatter = DateFormatter()
+        //        dateFormatter.dateFormat = "MMM dd HH:mm:ss yyyy"
+        //        guard let expiryDate = dateFormatter.date(from: expiryDateStr) else {
+        //            return nil
+        //        }
+        //        return expiryDate
+        let data = SecCertificateCopyData(self) as Data
+        guard let cert = try? X509Certificate(der: data) else {
+            return nil
+        }
+        return cert.notAfter
+    }
+    
+    func issuer() throws -> CA {
+        let data = SecCertificateCopyData(self) as Data
+        let cert = try X509Certificate(data: data)
+        guard let issuer = cert.issuerDistinguishedName else {
+            throw CertificateError.failedToFindIssuer
+        }
+        guard let ca = CA(rawValue: issuer.replacingOccurrences(of: "CN=", with: "")) else {
+            throw CertificateError.failedToFindIssuer
+        }
+        return ca
+    }
+    
+    var isRenewable: Bool {
+        guard let issuer = try? self.issuer() else {
+            return false
+        }
+        return issuer == .standalone || issuer == .reporting
+    }
+    
+//    var issuer: String? = {
+//        let data = SecCertificateCopyData(cert) as Data
+//        guard let decoded = try? ASN1Decoder(schema: Certificate.asn1Schema).decode(Certificate.self, from: data) else {
+//            return nil
+//        }
+//        if let val = decoded.tbsCertificate.issuer.first(where: { $0.contains(where: { $0.type.fields == [2,5,4,3] }) })?.first(where: { $0.type.fields == [2,5,4,3] })?.value {
+//            return "\(val)"
+//        } else {
+//            return nil
+//        }
+//    }()
+    
     /// Extract digital certificates from a PEM-encoded string
     /// - Parameter pemString: PEM string with certificates
     /// - Since: 1.0.0
     static func certificatesFromPEMString(_ pemString: String) throws -> [SecCertificate] {
-        let pattern = "-----BEGIN\\sCERTIFICATE-----((.|\\n)+?)-----END\\sCERTIFICATE-----"
+        let pattern = "-----BEGIN\\sCERTIFICATE-----\\s*([a-zA-Z0-9\\s\\/+]+=*)\\s*-----END\\sCERTIFICATE-----"
         let range = NSRange(location: 0, length: pemString.utf16.count)
-        let regex = try! NSRegularExpression(pattern: pattern, options: .allowCommentsAndWhitespace)
+        let regex = try! NSRegularExpression(pattern: pattern)
         let matches = regex.matches(in: pemString, options: [], range: range)
         return try matches.map({ result in
             let base64 = pemString[Range(result.range(at: 1), in: pemString)!].trimmingCharacters(in: .whitespacesAndNewlines)

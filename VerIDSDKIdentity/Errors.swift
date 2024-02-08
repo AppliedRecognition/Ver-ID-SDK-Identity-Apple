@@ -25,6 +25,17 @@ import Foundation
     /// Failed to copy common name from digital certificate
     /// - Since: 1.0.0
     case failedToCopyCommonName
+    /// Public key in certificate does not match public key of given private key
+    /// - Since: 3.1.0
+    case publicKeyDoesNotMatchRegisteredKey
+    /// Invalid certificate subject – must match registered certificate
+    /// - Since: 3.1.0
+    case invalidCertificateSubject
+    case failedToDeleteCertificateFromKeychain
+    case failedToSaveCertificateInKeychain
+    case failedToCopyPublicKey
+    case missingExpiryDate
+    case failedToFindIssuer
 }
 
 /// Errors related to digital identity
@@ -51,6 +62,14 @@ import Foundation
     /// Missing p12 identity file
     /// - Since: 1.0.0
     case missingIdentityFile
+    /// Failed to extract public key from certificate
+    /// - Since: 3.1.0
+    case failedToExtractPublicKey
+    /// Failed to create a certificate signing request
+    /// - Since: 3.1.0
+    case failedToCreateCertificateSigningRequest
+    case failedToCreateTrust
+    case certificateNotTrusted
 }
 
 /// Errors related to cryptographic key operations
@@ -62,4 +81,29 @@ import Foundation
     /// Failed to create a digital signature
     /// - Since: 1.0.0
     case failedToCreateSignature
+    /// Failed to copy external representation of the key
+    /// - Since: 3.1.0
+    case failedToCopyExternalRepresentation
+    /// Failed to copy key attributes
+    /// - Since: 3.1.0
+    case failedToCopyAttributes
+    /// Invalid private key type (expected RSA)
+    /// - Since: 3.1.0
+    case nonRSAPrivateKey
+    /// The private key is too long (max supported size in bits = 2048)
+    /// - Since: 3.1.0
+    case keyTooLong
+    /// Failed to save private key in keychain
+    /// - Since: 3.1.0
+    case failedToSavePrivateKeyInKeychain
+    /// Failed to read private key from keychain
+    /// - Since: 3.1.0
+    case failedToReadPrivateKeyFromKeychain
+    case failedToDeletePrivateKeyFromKeychain
+    case failedToCopyPublicKeyFromPrivateKey
+    case failedToCreatePrivateKey
+}
+
+@objc public enum IOError: Int, Error {
+    case downloadFailed
 }
