@@ -137,20 +137,31 @@ public extension SecCertificate {
         return cert.notAfter
     }
     
-    func issuer() throws -> CA {
-        let data = SecCertificateCopyData(self) as Data
-        let cert = try X509Certificate(data: data)
-        guard let issuer = cert.issuerDistinguishedName else {
+    var issuer: CA {
+        get throws {
+            let data = SecCertificateCopyData(self) as Data
+            let cert = try X509Certificate(data: data)
+            guard let issuer = cert.issuerDistinguishedName else {
+                throw CertificateError.failedToFindIssuer
+            }
+            let pattern = #"CN=([^,]+)"#
+            let regex = try NSRegularExpression(pattern: pattern)
+            let results = regex.matches(in: issuer, range: NSRange(issuer.startIndex..., in: issuer))
+            for result in results {
+                if let range = Range(result.range(at: 1), in: issuer) {
+                    let match = String(issuer[range])
+                    guard let ca = CA(rawValue: match) else {
+                        throw CertificateError.failedToFindIssuer
+                    }
+                    return ca
+                }
+            }
             throw CertificateError.failedToFindIssuer
         }
-        guard let ca = CA(rawValue: issuer.replacingOccurrences(of: "CN=", with: "")) else {
-            throw CertificateError.failedToFindIssuer
-        }
-        return ca
     }
     
     var isRenewable: Bool {
-        guard let issuer = try? self.issuer() else {
+        guard let issuer = try? self.issuer else {
             return false
         }
         return issuer == .standalone || issuer == .reporting

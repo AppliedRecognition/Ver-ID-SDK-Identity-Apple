@@ -92,7 +92,7 @@ final class TestAppTests: XCTestCase {
     
     func testGetCertificateIssuer() throws {
         let cert = try self.testRunner.createCertificate(expiryDays: 90)
-        let issuer = try cert.issuer()
+        let issuer = try cert.issuer
         XCTAssertEqual(issuer, .standalone)
     }
     
